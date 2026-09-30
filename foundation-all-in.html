@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#0B1F3A" />
+<meta name="description" content="Foundation HI all-in dealer cost: Promo fee + SAC (optional) + Risk." />
+<title>Foundation HI — All-in cost in 3 parts</title>
+<script>document.documentElement.classList.add("js");</script>
+<style>
+  :root {
+    --navy: #0B1F3A;
+    --navy-mid: #143052;
+    --gold: #F59E0B;
+    --gold-soft: #FEF3C7;
+    --gold-deep: #D97706;
+    --ink: #1E293B;
+    --muted: #64748B;
+    --line: #E2E8F0;
+    --wash: #F8FAFC;
+    --promo: #1D4ED8;
+    --promo-soft: #EFF6FF;
+    --sac: #B45309;
+    --sac-soft: #FFFBEB;
+    --risk: #9F1239;
+    --risk-soft: #FFF1F2;
+    --ok: #047857;
+    --ok-soft: #ECFDF5;
+    --page: #E7EDF5;
+    color-scheme: light;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html {
+    height: 100%;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    min-height: 100%;
+    min-height: 100dvh;
+    background: var(--page);
+    color: var(--ink);
+    line-height: 1.4;
+    -webkit-font-smoothing: antialiased;
+    padding-left: env(safe-area-inset-left, 0);
+    padding-right: env(safe-area-inset-right, 0);
+    overflow-x: hidden;
+  }
+
+  button, input { font: inherit; color: inherit; }
+  button {
+    cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+  button:focus-visible, input:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+  }
+
+  .sheet {
+    width: min(480px, 100%);
+    margin: 0 auto;
+    background: #fff;
+    min-height: 100dvh;
+  }
+
+  header {
+    background: linear-gradient(165deg, var(--navy) 0%, var(--navy-mid) 100%);
+    color: #fff;
+    padding: calc(18px + env(safe-area-inset-top, 0)) 16px 18px;
+    position: relative;
+  }
+  header::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold), #FBBF24 55%, transparent);
+  }
+  .brand-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  .eyebrow {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .wordmark {
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    font-size: 1.05rem;
+    color: #fff;
+  }
+  .wordmark i {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 6px;
+    border-radius: 2px;
+    background: var(--gold);
+    transform: translateY(-1px);
+    font-style: normal;
+  }
+  h1 {
+    font-size: 1.55rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    color: #fff;
+  }
+  h1 span { color: var(--gold); }
+  .formula-line {
+    margin-top: 12px;
+    background: rgba(245, 158, 11, 0.14);
+    border: 1px solid rgba(245, 158, 11, 0.4);
+    color: #FDE68A;
+    border-radius: 10px;
+    padding: 10px 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  main {
+    padding: 14px 14px calc(22px + env(safe-area-inset-bottom, 0));
+    display: flex;
+    flex-direction: column;
+  }
+  main > * + * { margin-top: 12px; }
+
+  .formula {
+    display: flex;
+    align-items: stretch;
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--navy);
+    min-height: 64px;
+  }
+  .part {
+    flex: 1 1 0;
+    min-width: 0;
+    min-height: 64px;
+    border: 0;
+    padding: 10px 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    color: #fff;
+    text-align: center;
+  }
+  .part .label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    white-space: nowrap;
+  }
+  .part .sub {
+    font-size: 0.58rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    opacity: 0.78;
+  }
+  .part.promo { background: var(--promo); }
+  .part.sac { background: var(--sac); }
+  .part.risk { background: var(--risk); }
+  .part.allin { background: var(--gold); color: var(--navy); }
+  .part.allin .sub { opacity: 0.8; }
+  .part[aria-expanded="true"] { box-shadow: inset 0 -3px 0 #fff; }
+  .part.allin[aria-expanded="true"] { box-shadow: inset 0 -3px 0 var(--navy); }
+  .part:active { filter: brightness(1.08); }
+  .op {
+    width: 22px;
+    flex: 0 0 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--gold);
+    background: var(--navy);
+  }
+  .op.eq { color: var(--navy); background: var(--gold); }
+
+  .hint {
+    font-size: 0.75rem;
+    color: var(--muted);
+    text-align: center;
+  }
+  html.js body.touched .hint { display: none; }
+
+  .explain { overflow: hidden; }
+  html.js .explain {
+    max-height: 0;
+    opacity: 0;
+    margin-top: 0 !important;
+    transition: max-height 0.22s ease, opacity 0.18s ease;
+  }
+  html.js .explain.is-open {
+    max-height: 180px;
+    opacity: 1;
+    margin-top: 12px !important;
+  }
+  html.js .explain p { display: none; }
+  html.js .explain p.is-on { display: block; }
+  .explain p {
+    border-radius: 10px;
+    border: 1px solid var(--line);
+    border-left-width: 4px;
+    padding: 12px 12px;
+    font-size: 0.9375rem;
+    line-height: 1.4;
+    background: var(--wash);
+  }
+  .explain p + p { margin-top: 8px; }
+  .explain p.tone-promo { border-left-color: var(--promo); background: var(--promo-soft); }
+  .explain p.tone-sac { border-left-color: var(--sac); background: var(--sac-soft); }
+  .explain p.tone-risk { border-left-color: var(--risk); background: var(--risk-soft); }
+  .explain p.tone-allin { border-left-color: var(--gold-deep); background: var(--gold-soft); }
+
+  .gotcha {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--gold-soft);
+    border: 1.5px solid var(--gold);
+    border-radius: 12px;
+    padding: 10px 12px;
+  }
+  .gotcha-badge {
+    flex: 0 0 auto;
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 0.6875rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 5px 8px;
+    border-radius: 6px;
+  }
+  .gotcha p {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.35;
+  }
+  .gotcha p span { font-weight: 500; color: var(--ink); }
+
+  .calc {
+    border: 1.5px solid var(--line);
+    border-radius: 14px;
+    overflow: hidden;
+    background: #fff;
+  }
+  .calc-head {
+    background: var(--navy);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 10px 14px;
+  }
+  .calc-body {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .calc-lead {
+    font-size: 0.8125rem;
+    color: var(--muted);
+  }
+
+  .field { display: flex; flex-direction: column; gap: 4px; }
+  .field label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .field.promo label { color: var(--promo); }
+  .field.sac label { color: var(--sac); }
+  .field.risk label { color: var(--risk); }
+  .sac-row, .risk-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 8px;
+    align-items: stretch;
+  }
+  .input-wrap {
+    position: relative;
+    min-height: 48px;
+  }
+  .input-wrap input {
+    width: 100%;
+    height: 48px;
+    border: 1.5px solid var(--line);
+    border-radius: 10px;
+    background: var(--wash);
+    padding: 0 36px 0 12px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    color: var(--navy);
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  .field.promo input { border-left: 4px solid var(--promo); }
+  .field.sac input { border-left: 4px solid var(--sac); }
+  .field.risk input { border-left: 4px solid var(--risk); }
+  .input-wrap input:disabled {
+    opacity: 0.55;
+    color: var(--ok);
+    background: var(--ok-soft);
+  }
+  .suffix {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: 700;
+    color: var(--muted);
+    pointer-events: none;
+  }
+
+  .ghost {
+    min-height: 48px;
+    padding: 0 12px;
+    border-radius: 10px;
+    border: 1.5px solid var(--line);
+    background: #fff;
+    color: var(--navy);
+    font-size: 0.8125rem;
+    font-weight: 700;
+  }
+  .ghost:active { background: var(--wash); }
+
+  .total-block {
+    background: var(--gold);
+    color: var(--navy);
+    border-radius: 12px;
+    padding: 12px 14px 14px;
+    text-align: center;
+  }
+  .total-k {
+    font-size: 0.6875rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .total {
+    font-size: 2.75rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+    font-variant-numeric: tabular-nums;
+    margin-top: 2px;
+  }
+  .total.bump { animation: bump 0.28s ease; }
+  @keyframes bump {
+    0% { transform: scale(1); }
+    40% { transform: scale(1.045); }
+    100% { transform: scale(1); }
+  }
+  .breakdown {
+    margin-top: 2px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    text-align: center;
+    color: var(--navy);
+  }
+  .breakdown .opand { font-weight: 600; opacity: 0.55; padding: 0 4px; }
+
+  .block-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--navy);
+  }
+  .tiers {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+  }
+  .tier {
+    min-height: 52px;
+    border-radius: 10px;
+    border: 1.5px solid var(--line);
+    background: var(--wash);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1px;
+    padding: 6px 2px;
+  }
+  .tier .k {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .tier .v {
+    font-size: 1rem;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    color: var(--ok);
+    line-height: 1.1;
+  }
+  .tier.hot .v { color: var(--risk); }
+  .tier[aria-pressed="true"] {
+    background: var(--navy);
+    border-color: var(--navy);
+  }
+  .tier[aria-pressed="true"] .k,
+  .tier[aria-pressed="true"] .v { color: #fff; }
+  .tier:disabled { opacity: 0.4; }
+
+  .note {
+    font-size: 0.75rem;
+    color: var(--muted);
+    line-height: 1.35;
+  }
+
+  .hvac {
+    width: 100%;
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-align: left;
+    border-radius: 12px;
+    border: 1.5px solid var(--line);
+    background: var(--wash);
+    padding: 8px 12px;
+  }
+  .switch {
+    width: 44px;
+    height: 28px;
+    border-radius: 99px;
+    background: #CBD5E1;
+    position: relative;
+    flex: 0 0 44px;
+    transition: background 0.18s ease;
+  }
+  .switch::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 1px 2px rgba(11, 31, 58, 0.25);
+    transition: transform 0.18s ease;
+  }
+  .hvac[aria-checked="true"] {
+    background: var(--ok-soft);
+    border-color: var(--ok);
+  }
+  .hvac[aria-checked="true"] .switch { background: var(--ok); }
+  .hvac[aria-checked="true"] .switch::after { transform: translateX(16px); }
+  .hvac strong {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--navy);
+  }
+  .hvac[aria-checked="true"] strong { color: var(--ok); }
+  .hvac em {
+    display: block;
+    font-style: normal;
+    font-size: 0.8125rem;
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .hvac-note {
+    display: none;
+    background: var(--ok-soft);
+    color: var(--ok);
+    border-radius: 10px;
+    padding: 10px 12px;
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.35;
+  }
+  .hvac-note.show { display: block; }
+  .hvac-note span {
+    display: block;
+    font-weight: 500;
+    color: var(--ink);
+    margin-top: 2px;
+  }
+
+  footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding-top: 4px;
+    border-top: 1px solid var(--line);
+    font-size: 0.7rem;
+    color: var(--muted);
+    line-height: 1.35;
+  }
+  footer strong { color: var(--navy-mid); font-weight: 600; }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  @media (min-width: 540px) {
+    body { padding: 28px 16px 40px; }
+    .sheet {
+      min-height: auto;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 16px 40px rgba(11, 31, 58, 0.12);
+    }
+  }
+
+  @media (max-width: 359px) {
+    h1 { font-size: 1.35rem; }
+    .part .label { font-size: 0.72rem; }
+    .part .sub { font-size: 0.5rem; letter-spacing: 0.02em; }
+    .op { width: 16px; flex-basis: 16px; font-size: 0.9rem; }
+    .total { font-size: 2.35rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+  <header>
+    <div class="brand-row">
+      <div class="eyebrow">Finti · Dealer / Ops cheat sheet</div>
+      <div class="wordmark"><i aria-hidden="true"></i>finti</div>
+    </div>
+    <h1>Foundation HI — <span>All-in cost in 3 parts</span></h1>
+    <p class="formula-line">All-in dealer cost ≈ Promo fee + SAC (optional) + Risk</p>
+  </header>
+
+  <main>
+    <div class="formula" role="group" aria-label="All-in formula. Tap a part for what it means.">
+      <button type="button" class="part promo" data-part="promo" aria-expanded="false" aria-controls="explain">
+        <span class="label">Promo fee</span>
+        <span class="sub">Rate sheet</span>
+      </button>
+      <div class="op" aria-hidden="true">+</div>
+      <button type="button" class="part sac" data-part="sac" aria-expanded="false" aria-controls="explain">
+        <span class="label">SAC</span>
+        <span class="sub">Optional</span>
+      </button>
+      <div class="op" aria-hidden="true">+</div>
+      <button type="button" class="part risk" data-part="risk" aria-expanded="false" aria-controls="explain">
+        <span class="label">Risk</span>
+        <span class="sub">After approval</span>
+      </button>
+      <div class="op eq" aria-hidden="true">=</div>
+      <button type="button" class="part allin" data-part="allin" aria-expanded="false" aria-controls="explain">
+        <span class="label">All-in</span>
+        <span class="sub">Dealer cost</span>
+      </button>
+    </div>
+    <p class="hint" id="hint">Tap a part for the one-line meaning.</p>
+
+    <div id="explain" class="explain" aria-live="polite" aria-hidden="true">
+      <p class="tone-promo" data-part="promo">Printed dealer fee on the rate sheet for APR × term × tier.</p>
+      <p class="tone-sac" data-part="sac">Optional same-as-cash period; tier-priced add-on on top of the installment plan.</p>
+      <p class="tone-risk" data-part="risk">Variable Discount Adder after approval (HI / Standard). Not printed as a product row.</p>
+      <p class="tone-allin" data-part="allin">Dealer cost: Promo fee + SAC (optional) + Risk.</p>
+    </div>
+
+    <div class="gotcha">
+      <div class="gotcha-badge">Gotcha</div>
+      <p>“Promo discount” on Foundation sheets = a fee you pay (MDR), <span>not money back.</span></p>
+    </div>
+
+    <section class="calc" aria-labelledby="calc-title">
+      <div class="calc-head" id="calc-title">Live calculator</div>
+      <div class="calc-body">
+        <p class="calc-lead">Type the percents. Tier chips fill typical curated risk.</p>
+
+        <div class="field promo">
+          <label for="promo">Promo %</label>
+          <div class="input-wrap">
+            <input id="promo" inputmode="decimal" enterkeyhint="done" autocomplete="off" autocorrect="off" spellcheck="false" value="0" aria-label="Promo percent" />
+            <span class="suffix" aria-hidden="true">%</span>
+          </div>
+        </div>
+
+        <div class="field sac">
+          <label for="sac">SAC %</label>
+          <div class="sac-row">
+            <div class="input-wrap">
+              <input id="sac" inputmode="decimal" enterkeyhint="done" autocomplete="off" autocorrect="off" spellcheck="false" value="0" aria-label="SAC percent" />
+              <span class="suffix" aria-hidden="true">%</span>
+            </div>
+            <button type="button" class="ghost" id="clear-sac">Clear SAC</button>
+          </div>
+        </div>
+
+        <div class="field risk">
+          <label for="risk">Risk %</label>
+          <div class="risk-row">
+            <div class="input-wrap">
+              <input id="risk" inputmode="decimal" enterkeyhint="done" autocomplete="off" autocorrect="off" spellcheck="false" value="0" aria-label="Risk percent" />
+              <span class="suffix" aria-hidden="true">%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="total-block">
+          <div class="total-k">All-in dealer cost</div>
+          <div class="total" id="total">0%</div>
+          <p class="breakdown" id="breakdown" aria-hidden="true">
+            <span id="b-promo">0%</span><span class="opand">+</span><span id="b-sac">0%</span><span class="opand">+</span><span id="b-risk">0%</span>
+          </p>
+        </div>
+        <p class="visually-hidden" id="live" aria-live="polite"></p>
+
+        <div>
+          <div class="block-label" id="tier-label">Typical risk · Finti curated</div>
+          <div class="tiers" role="radiogroup" aria-labelledby="tier-label" style="margin-top:6px">
+            <button type="button" class="tier" data-tier="t1" data-risk="0" aria-pressed="false">
+              <span class="k">T1</span><span class="v">0%</span>
+            </button>
+            <button type="button" class="tier" data-tier="t2" data-risk="0" aria-pressed="false">
+              <span class="k">T2</span><span class="v">0%</span>
+            </button>
+            <button type="button" class="tier hot" data-tier="t3" data-risk="6.5" aria-pressed="false">
+              <span class="k">T3</span><span class="v">6.5%</span>
+            </button>
+            <button type="button" class="tier hot" data-tier="t4" data-risk="8.5" aria-pressed="false">
+              <span class="k">T4</span><span class="v">8.5%</span>
+            </button>
+          </div>
+          <p class="note" style="margin-top:6px">T1/T2 = 0% · T3 = 6.5% · T4 = 8.5%. Within Foundation’s ~5–15% T3/T4 band. Confirm live bid in LGS.</p>
+        </div>
+
+        <button type="button" class="hvac" id="hvac" role="switch" aria-checked="false">
+          <span class="switch" aria-hidden="true"></span>
+          <span>
+            <strong>HVAC</strong>
+            <em id="hvac-em">No risk — printed fee is all-in</em>
+          </span>
+        </button>
+        <p class="hvac-note" id="hvac-note">No risk factor. Printed fee is all-in.<span>Do not add a Variable Discount Adder.</span></p>
+      </div>
+    </section>
+
+    <footer>
+      <div>Confirm live fees in <strong>LGS</strong> · Illustrative · Pocket Sep 17 &amp; 24, 2026</div>
+      <div>Finti · Foundation HI</div>
+    </footer>
+  </main>
+</div>
+<script>
+(function () {
+  var open = null;
+  var hvacOn = false;
+  var tier = null;
+  var riskMemory = "0";
+  var tierMemory = null;
+  var lastTotal = "0%";
+  var liveTimer = 0;
+
+  var explain = document.getElementById("explain");
+  var parts = Array.prototype.slice.call(document.querySelectorAll(".part"));
+  var lines = Array.prototype.slice.call(explain.querySelectorAll("p"));
+  var promo = document.getElementById("promo");
+  var sac = document.getElementById("sac");
+  var risk = document.getElementById("risk");
+  var totalEl = document.getElementById("total");
+  var bPromo = document.getElementById("b-promo");
+  var bSac = document.getElementById("b-sac");
+  var bRisk = document.getElementById("b-risk");
+  var live = document.getElementById("live");
+  var hvacBtn = document.getElementById("hvac");
+  var hvacNote = document.getElementById("hvac-note");
+  var hvacEm = document.getElementById("hvac-em");
+  var tiers = Array.prototype.slice.call(document.querySelectorAll(".tier"));
+
+  function parsePct(raw) {
+    var n = parseFloat(String(raw).replace(/[^0-9.+-]/g, ""));
+    return isFinite(n) ? n : 0;
+  }
+
+  function formatPct(n) {
+    var r = Math.round((n + Number.EPSILON) * 100) / 100;
+    var text = r.toFixed(2).replace(/\.00$/, "").replace(/(\.\d)0$/, "$1");
+    return text + "%";
+  }
+
+  function selectAll(el) {
+    requestAnimationFrame(function () {
+      try { el.setSelectionRange(0, el.value.length); } catch (e) {}
+    });
+  }
+
+  function setTierPressed(id) {
+    tier = id;
+    tiers.forEach(function (btn) {
+      var on = btn.getAttribute("data-tier") === id;
+      btn.setAttribute("aria-pressed", on ? "true" : "false");
+    });
+  }
+
+  function render() {
+    var p = parsePct(promo.value);
+    var s = parsePct(sac.value);
+    var r = hvacOn ? 0 : parsePct(risk.value);
+    var sum = formatPct(p + s + r);
+    if (sum !== lastTotal) {
+      totalEl.classList.remove("bump");
+      void totalEl.offsetWidth;
+      totalEl.classList.add("bump");
+      lastTotal = sum;
+    }
+    totalEl.textContent = sum;
+    bPromo.textContent = formatPct(p);
+    bSac.textContent = formatPct(s);
+    bRisk.textContent = formatPct(r);
+    clearTimeout(liveTimer);
+    liveTimer = setTimeout(function () {
+      live.textContent = "All-in dealer cost " + sum;
+    }, 400);
+  }
+
+  function applyHvac(on) {
+    hvacOn = on;
+    hvacBtn.setAttribute("aria-checked", on ? "true" : "false");
+    hvacNote.classList.toggle("show", on);
+    risk.disabled = on;
+    tiers.forEach(function (btn) { btn.disabled = on; });
+    if (on) {
+      riskMemory = risk.value;
+      tierMemory = tier;
+      risk.value = "0";
+      setTierPressed(null);
+      hvacEm.textContent = "On · printed fee is all-in";
+    } else {
+      risk.value = riskMemory;
+      setTierPressed(tierMemory);
+      hvacEm.textContent = "No risk — printed fee is all-in";
+    }
+    render();
+  }
+
+  parts.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var part = btn.getAttribute("data-part");
+      var willOpen = open !== part;
+      document.body.classList.add("touched");
+      if (willOpen) {
+        lines.forEach(function (p) {
+          p.classList.toggle("is-on", p.getAttribute("data-part") === part);
+        });
+        explain.classList.add("is-open");
+        open = part;
+        explain.setAttribute("aria-hidden", "false");
+      } else {
+        explain.classList.remove("is-open");
+        explain.setAttribute("aria-hidden", "true");
+        open = null;
+      }
+      parts.forEach(function (b) {
+        b.setAttribute("aria-expanded", open === b.getAttribute("data-part") ? "true" : "false");
+      });
+    });
+  });
+
+  [promo, sac, risk].forEach(function (input) {
+    input.addEventListener("input", function () {
+      if (input === risk && !hvacOn) {
+        setTierPressed(null);
+        riskMemory = risk.value;
+        tierMemory = null;
+      }
+      render();
+    });
+    input.addEventListener("focus", function () { selectAll(input); });
+  });
+
+  document.getElementById("clear-sac").addEventListener("click", function () {
+    sac.value = "0";
+    render();
+    sac.focus();
+  });
+
+  tiers.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      if (hvacOn) applyHvac(false);
+      var id = btn.getAttribute("data-tier");
+      var value = btn.getAttribute("data-risk");
+      risk.value = value;
+      riskMemory = value;
+      tierMemory = id;
+      setTierPressed(id);
+      render();
+    });
+  });
+
+  hvacBtn.addEventListener("click", function () {
+    applyHvac(!hvacOn);
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>
