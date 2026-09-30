@@ -286,60 +286,112 @@
     color: var(--muted);
   }
 
-  .field { display: flex; flex-direction: column; gap: 4px; }
+  .field {
+    --accent: var(--navy);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .field.promo { --accent: var(--promo); }
+  .field.sac { --accent: var(--sac); }
+  .field.risk { --accent: var(--risk); }
+  .field-top {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+  }
   .field label {
-    font-size: 0.75rem;
+    font-size: 0.8125rem;
     font-weight: 700;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
+    line-height: 1.3;
+    color: var(--accent);
   }
-  .field.promo label { color: var(--promo); }
-  .field.sac label { color: var(--sac); }
-  .field.risk label { color: var(--risk); }
-  .sac-row, .risk-row {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 8px;
-    align-items: stretch;
-  }
-  .input-wrap {
-    position: relative;
-    min-height: 48px;
-  }
-  .input-wrap input {
-    width: 100%;
-    height: 48px;
-    border: 1.5px solid var(--line);
-    border-radius: 10px;
-    background: var(--wash);
-    padding: 0 36px 0 12px;
-    font-size: 1.25rem;
-    font-weight: 700;
+  .field output {
+    flex: 0 0 auto;
+    font-size: 1.2rem;
+    font-weight: 800;
     font-variant-numeric: tabular-nums;
     color: var(--navy);
+    line-height: 1;
+  }
+  .field.is-forced output { color: var(--ok); }
+
+  .slider {
     -webkit-appearance: none;
     appearance: none;
+    width: 100%;
+    height: 44px;
+    margin: 0;
+    background: transparent;
+    touch-action: manipulation;
+    accent-color: var(--accent);
   }
-  .field.promo input { border-left: 4px solid var(--promo); }
-  .field.sac input { border-left: 4px solid var(--sac); }
-  .field.risk input { border-left: 4px solid var(--risk); }
-  .input-wrap input:disabled {
-    opacity: 0.55;
-    color: var(--ok);
-    background: var(--ok-soft);
+  .slider:focus { outline: none; }
+  .slider:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+  .slider::-webkit-slider-runnable-track {
+    height: 8px;
+    border-radius: 99px;
+    background: linear-gradient(90deg, var(--accent) var(--fill, 0%), #E2E8F0 var(--fill, 0%));
   }
-  .suffix {
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 32px;
+    height: 32px;
+    margin-top: -12px;
+    border-radius: 50%;
+    background: #fff;
+    border: 3px solid var(--accent);
+    box-shadow: 0 1px 3px rgba(11, 31, 58, 0.28);
+  }
+  .slider::-moz-range-track {
+    height: 8px;
+    border-radius: 99px;
+    background: #E2E8F0;
+    border: 0;
+  }
+  .slider::-moz-range-progress {
+    height: 8px;
+    border-radius: 99px;
+    background: var(--accent);
+  }
+  .slider::-moz-range-thumb {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #fff;
+    border: 3px solid var(--accent);
+    box-shadow: 0 1px 3px rgba(11, 31, 58, 0.28);
+  }
+  .slider:disabled { opacity: 0.4; }
+
+  .ticks {
+    display: flex;
+    justify-content: space-between;
+    gap: 2px;
+    margin-top: -4px;
+    font-size: 0.62rem;
     font-weight: 700;
+    font-variant-numeric: tabular-nums;
     color: var(--muted);
-    pointer-events: none;
+    line-height: 1.15;
   }
+  .ticks span { flex: 1 1 0; text-align: center; min-width: 0; }
+  .ticks span:first-child { text-align: left; }
+  .ticks span:last-child { text-align: right; }
+  .ticks b {
+    display: block;
+    font-size: 0.65rem;
+    letter-spacing: 0.04em;
+  }
+  .ticks span.on { color: var(--accent); }
+  .field.risk .ticks span.on { color: var(--ok); }
+  .field.risk .ticks span.hot.on { color: var(--risk); }
 
   .ghost {
-    min-height: 48px;
+    min-height: 44px;
+    margin-top: 6px;
     padding: 0 12px;
     border-radius: 10px;
     border: 1.5px solid var(--line);
@@ -386,53 +438,6 @@
     color: var(--navy);
   }
   .breakdown .opand { font-weight: 600; opacity: 0.55; padding: 0 4px; }
-
-  .block-label {
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: var(--navy);
-  }
-  .tiers {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 6px;
-  }
-  .tier {
-    min-height: 52px;
-    border-radius: 10px;
-    border: 1.5px solid var(--line);
-    background: var(--wash);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1px;
-    padding: 6px 2px;
-  }
-  .tier .k {
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-  .tier .v {
-    font-size: 1rem;
-    font-weight: 800;
-    font-variant-numeric: tabular-nums;
-    color: var(--ok);
-    line-height: 1.1;
-  }
-  .tier.hot .v { color: var(--risk); }
-  .tier[aria-pressed="true"] {
-    background: var(--navy);
-    border-color: var(--navy);
-  }
-  .tier[aria-pressed="true"] .k,
-  .tier[aria-pressed="true"] .v { color: #fff; }
-  .tier:disabled { opacity: 0.4; }
 
   .note {
     font-size: 0.75rem;
@@ -611,35 +616,36 @@
     <section class="calc" aria-labelledby="calc-title">
       <div class="calc-head" id="calc-title">Live calculator</div>
       <div class="calc-body">
-        <p class="calc-lead">Type the percents. Tier chips fill typical curated risk.</p>
+        <p class="calc-lead">Drag a slider. Each one snaps to a fixed step — nothing is typed in.</p>
+        <p class="note">Example steps — confirm live fees in LGS. Promo and SAC steps are not live remy.</p>
 
         <div class="field promo">
-          <label for="promo">Promo %</label>
-          <div class="input-wrap">
-            <input id="promo" inputmode="decimal" enterkeyhint="done" autocomplete="off" autocorrect="off" spellcheck="false" value="0" aria-label="Promo percent" />
-            <span class="suffix" aria-hidden="true">%</span>
+          <div class="field-top">
+            <label for="promo">Example promo % (not live remy)</label>
+            <output id="promo-out" for="promo">0%</output>
           </div>
+          <input id="promo" class="slider" type="range" min="0" max="6" step="1" value="0" aria-valuemin="0" aria-valuemax="6" aria-valuetext="Example 0%, not live remy" />
+          <div class="ticks" aria-hidden="true"><span>0</span><span>2.5</span><span>5</span><span>7.5</span><span>10</span><span>12.5</span><span>15</span></div>
         </div>
 
         <div class="field sac">
-          <label for="sac">SAC %</label>
-          <div class="sac-row">
-            <div class="input-wrap">
-              <input id="sac" inputmode="decimal" enterkeyhint="done" autocomplete="off" autocorrect="off" spellcheck="false" value="0" aria-label="SAC percent" />
-              <span class="suffix" aria-hidden="true">%</span>
-            </div>
-            <button type="button" class="ghost" id="clear-sac">Clear SAC</button>
+          <div class="field-top">
+            <label for="sac">Example SAC % (not live remy)</label>
+            <output id="sac-out" for="sac">0%</output>
           </div>
+          <input id="sac" class="slider" type="range" min="0" max="3" step="1" value="0" aria-valuemin="0" aria-valuemax="3" aria-valuetext="Example 0%, not live remy" />
+          <div class="ticks" aria-hidden="true"><span>0</span><span>2.5</span><span>4.75</span><span>6</span></div>
+          <button type="button" class="ghost" id="clear-sac">Clear SAC</button>
         </div>
 
-        <div class="field risk">
-          <label for="risk">Risk %</label>
-          <div class="risk-row">
-            <div class="input-wrap">
-              <input id="risk" inputmode="decimal" enterkeyhint="done" autocomplete="off" autocorrect="off" spellcheck="false" value="0" aria-label="Risk percent" />
-              <span class="suffix" aria-hidden="true">%</span>
-            </div>
+        <div class="field risk" id="risk-field">
+          <div class="field-top">
+            <label for="risk">Risk · curated tiers</label>
+            <output id="risk-out" for="risk">T1 · 0%</output>
           </div>
+          <input id="risk" class="slider" type="range" min="0" max="3" step="1" value="0" aria-valuemin="0" aria-valuemax="3" aria-valuetext="T1, 0%" />
+          <div class="ticks" aria-hidden="true"><span><b>T1</b>0%</span><span><b>T2</b>0%</span><span class="hot"><b>T3</b>6.5%</span><span class="hot"><b>T4</b>8.5%</span></div>
+          <p class="note" style="margin-top:6px">T1/T2 = 0% · T3 = 6.5% · T4 = 8.5%. Within Foundation’s ~5–15% T3/T4 band. Confirm live bid in LGS.</p>
         </div>
 
         <div class="total-block">
@@ -650,25 +656,6 @@
           </p>
         </div>
         <p class="visually-hidden" id="live" aria-live="polite"></p>
-
-        <div>
-          <div class="block-label" id="tier-label">Typical risk · Finti curated</div>
-          <div class="tiers" role="radiogroup" aria-labelledby="tier-label" style="margin-top:6px">
-            <button type="button" class="tier" data-tier="t1" data-risk="0" aria-pressed="false">
-              <span class="k">T1</span><span class="v">0%</span>
-            </button>
-            <button type="button" class="tier" data-tier="t2" data-risk="0" aria-pressed="false">
-              <span class="k">T2</span><span class="v">0%</span>
-            </button>
-            <button type="button" class="tier hot" data-tier="t3" data-risk="6.5" aria-pressed="false">
-              <span class="k">T3</span><span class="v">6.5%</span>
-            </button>
-            <button type="button" class="tier hot" data-tier="t4" data-risk="8.5" aria-pressed="false">
-              <span class="k">T4</span><span class="v">8.5%</span>
-            </button>
-          </div>
-          <p class="note" style="margin-top:6px">T1/T2 = 0% · T3 = 6.5% · T4 = 8.5%. Within Foundation’s ~5–15% T3/T4 band. Confirm live bid in LGS.</p>
-        </div>
 
         <button type="button" class="hvac" id="hvac" role="switch" aria-checked="false">
           <span class="switch" aria-hidden="true"></span>
@@ -689,11 +676,18 @@
 </div>
 <script>
 (function () {
+  var PROMO = [0, 2.5, 5, 7.5, 10, 12.5, 15];
+  var SAC = [0, 2.5, 4.75, 6];
+  var RISK = [
+    { tier: "T1", pct: 0 },
+    { tier: "T2", pct: 0 },
+    { tier: "T3", pct: 6.5 },
+    { tier: "T4", pct: 8.5 }
+  ];
+
   var open = null;
   var hvacOn = false;
-  var tier = null;
-  var riskMemory = "0";
-  var tierMemory = null;
+  var riskMemory = 0;
   var lastTotal = "0%";
   var liveTimer = 0;
 
@@ -703,6 +697,10 @@
   var promo = document.getElementById("promo");
   var sac = document.getElementById("sac");
   var risk = document.getElementById("risk");
+  var riskField = document.getElementById("risk-field");
+  var promoOut = document.getElementById("promo-out");
+  var sacOut = document.getElementById("sac-out");
+  var riskOut = document.getElementById("risk-out");
   var totalEl = document.getElementById("total");
   var bPromo = document.getElementById("b-promo");
   var bSac = document.getElementById("b-sac");
@@ -711,12 +709,6 @@
   var hvacBtn = document.getElementById("hvac");
   var hvacNote = document.getElementById("hvac-note");
   var hvacEm = document.getElementById("hvac-em");
-  var tiers = Array.prototype.slice.call(document.querySelectorAll(".tier"));
-
-  function parsePct(raw) {
-    var n = parseFloat(String(raw).replace(/[^0-9.+-]/g, ""));
-    return isFinite(n) ? n : 0;
-  }
 
   function formatPct(n) {
     var r = Math.round((n + Number.EPSILON) * 100) / 100;
@@ -724,24 +716,28 @@
     return text + "%";
   }
 
-  function selectAll(el) {
-    requestAnimationFrame(function () {
-      try { el.setSelectionRange(0, el.value.length); } catch (e) {}
+  function snap(el) {
+    var max = Number(el.max);
+    var n = Math.round(Number(el.value));
+    if (!isFinite(n) || n < 0) n = 0;
+    if (n > max) n = max;
+    el.value = String(n);
+    el.style.setProperty("--fill", (max === 0 ? 0 : (n / max) * 100) + "%");
+    var ticks = el.parentElement.querySelectorAll(".ticks span");
+    Array.prototype.forEach.call(ticks, function (span, i) {
+      span.classList.toggle("on", !el.disabled && i === n);
     });
-  }
-
-  function setTierPressed(id) {
-    tier = id;
-    tiers.forEach(function (btn) {
-      var on = btn.getAttribute("data-tier") === id;
-      btn.setAttribute("aria-pressed", on ? "true" : "false");
-    });
+    return n;
   }
 
   function render() {
-    var p = parsePct(promo.value);
-    var s = parsePct(sac.value);
-    var r = hvacOn ? 0 : parsePct(risk.value);
+    var pi = snap(promo);
+    var si = snap(sac);
+    var ri = snap(risk);
+    var p = PROMO[pi];
+    var s = SAC[si];
+    var tier = RISK[ri];
+    var r = hvacOn ? 0 : tier.pct;
     var sum = formatPct(p + s + r);
     if (sum !== lastTotal) {
       totalEl.classList.remove("bump");
@@ -753,6 +749,12 @@
     bPromo.textContent = formatPct(p);
     bSac.textContent = formatPct(s);
     bRisk.textContent = formatPct(r);
+    promoOut.textContent = formatPct(p);
+    sacOut.textContent = formatPct(s);
+    riskOut.textContent = hvacOn ? "0%" : tier.tier + " · " + formatPct(tier.pct);
+    promo.setAttribute("aria-valuetext", "Example " + formatPct(p) + ", not live remy");
+    sac.setAttribute("aria-valuetext", "Example " + formatPct(s) + ", not live remy");
+    risk.setAttribute("aria-valuetext", hvacOn ? "0%, HVAC, printed fee is all-in" : tier.tier + ", " + formatPct(tier.pct));
     clearTimeout(liveTimer);
     liveTimer = setTimeout(function () {
       live.textContent = "All-in dealer cost " + sum;
@@ -763,17 +765,15 @@
     hvacOn = on;
     hvacBtn.setAttribute("aria-checked", on ? "true" : "false");
     hvacNote.classList.toggle("show", on);
-    risk.disabled = on;
-    tiers.forEach(function (btn) { btn.disabled = on; });
+    riskField.classList.toggle("is-forced", on);
     if (on) {
-      riskMemory = risk.value;
-      tierMemory = tier;
+      riskMemory = snap(risk);
       risk.value = "0";
-      setTierPressed(null);
+      risk.disabled = true;
       hvacEm.textContent = "On · printed fee is all-in";
     } else {
-      risk.value = riskMemory;
-      setTierPressed(tierMemory);
+      risk.disabled = false;
+      risk.value = String(riskMemory);
       hvacEm.textContent = "No risk — printed fee is all-in";
     }
     render();
@@ -803,34 +803,20 @@
   });
 
   [promo, sac, risk].forEach(function (input) {
+    input.addEventListener("keydown", function (e) {
+      var allow = { ArrowLeft: 1, ArrowRight: 1, ArrowUp: 1, ArrowDown: 1, Home: 1, End: 1, PageUp: 1, PageDown: 1, Tab: 1 };
+      if (!allow[e.key]) e.preventDefault();
+    });
     input.addEventListener("input", function () {
-      if (input === risk && !hvacOn) {
-        setTierPressed(null);
-        riskMemory = risk.value;
-        tierMemory = null;
-      }
+      if (input === risk && hvacOn) risk.value = "0";
+      if (input === risk && !hvacOn) riskMemory = snap(risk);
       render();
     });
-    input.addEventListener("focus", function () { selectAll(input); });
   });
 
   document.getElementById("clear-sac").addEventListener("click", function () {
     sac.value = "0";
     render();
-    sac.focus();
-  });
-
-  tiers.forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      if (hvacOn) applyHvac(false);
-      var id = btn.getAttribute("data-tier");
-      var value = btn.getAttribute("data-risk");
-      risk.value = value;
-      riskMemory = value;
-      tierMemory = id;
-      setTierPressed(id);
-      render();
-    });
   });
 
   hvacBtn.addEventListener("click", function () {
