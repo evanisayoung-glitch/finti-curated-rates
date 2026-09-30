@@ -308,6 +308,70 @@ table{min-width:min(780px,100%)}
   .look-toggle [role="tab"]{font-size:.75rem;padding:11px 6px}
   .logo-well.vw img{max-width:130px;height:34px}
 }
+
+
+/* Mobile: simple term cards — APR, Term, Dealer fee */
+@media (max-width:720px){
+  .table-label{padding:12px 12px 0}
+  .scroll{overflow-x:visible}
+  table{min-width:0!important;width:100%;border-collapse:separate;border-spacing:0 10px}
+  thead{display:none}
+  tbody tr.term-group td{
+    display:block;padding:8px 12px;border-radius:8px;border:none;
+    background:#EEF2F7!important;font-size:.6875rem;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:var(--navy)
+  }
+  tbody tr:not(.term-group){
+    display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 10px;
+    background:var(--card);border:1px solid var(--border);border-radius:12px;
+    padding:12px 14px;box-shadow:var(--shadow-table)
+  }
+  tbody tr:not(.term-group) td{
+    border:none!important;background:transparent!important;padding:0!important;max-width:none;white-space:normal
+  }
+  tbody tr:not(.term-group) td.code{
+    order:1;font-size:.6875rem;font-weight:600;color:var(--muted);flex:0 0 auto
+  }
+  tbody tr:not(.term-group) td.name{
+    order:2;flex:1 1 70%;font-size:.875rem;font-weight:600;color:var(--text);margin:0
+  }
+  tbody tr:not(.term-group) td.name .plan-sub{display:none}
+  tbody tr:not(.term-group) td.apr,
+  tbody tr:not(.term-group) td.term,
+  tbody tr:not(.term-group) td.fee,
+  tbody tr:not(.term-group) td.allin{
+    order:10;display:flex;flex-direction:column;align-items:flex-start;gap:2px;
+    min-width:4.5rem;font-size:1.125rem;font-weight:700;line-height:1.15;margin-top:6px
+  }
+  tbody tr:not(.term-group) td.apr{color:var(--cta-deep)}
+  tbody tr:not(.term-group) td.term,
+  tbody tr:not(.term-group) td.fee,
+  tbody tr:not(.term-group) td.allin{color:var(--navy)}
+  tbody tr:not(.term-group) td.apr::before{content:"APR";font-size:.625rem;font-weight:600;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+  tbody tr:not(.term-group) td.term::before{content:"Term";font-size:.625rem;font-weight:600;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+  tbody tr:not(.term-group) td.fee::before{content:"Dealer fee";font-size:.625rem;font-weight:600;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+  #foundation tbody tr:not(.term-group) td.fee::before{content:"Base MDR"}
+  tbody tr:not(.term-group) td.risk{
+    order:10;display:flex;flex-direction:column;align-items:flex-start;gap:2px;
+    min-width:4.5rem;font-size:1.125rem;font-weight:700;line-height:1.15;margin-top:6px;color:var(--navy)
+  }
+  tbody tr:not(.term-group) td.risk::before{content:"Risk";font-size:.625rem;font-weight:600;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+  tbody tr:not(.term-group) td.allin::before{content:"All-in";font-size:.625rem;font-weight:600;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+  tbody tr:not(.term-group) td.term::after{content:" mo";font-weight:600;font-size:.75rem;color:var(--muted)}
+  tbody tr:not(.term-group) td.range,
+  tbody tr:not(.term-group) td.why,
+  tbody tr:not(.term-group) td.elig,
+  tbody tr:not(.term-group) td:not(.code):not(.name):not(.apr):not(.term):not(.fee):not(.risk):not(.allin){
+    display:none!important
+  }
+  /* show type/tier badges if present as small chip at end */
+  tbody tr:not(.term-group) td:has(.type-badge),
+  tbody tr:not(.term-group) td:has(.tier){
+    display:inline-flex!important;order:20;margin-top:6px;width:100%
+  }
+  tbody tr:not(.term-group):hover td{background:transparent!important}
+  tr.nc-row{background:#FFFBEB!important;border-color:#FDE68A}
+}
+
 </style>
 </head>
 <body data-first="sfc">
@@ -395,7 +459,7 @@ table{min-width:min(780px,100%)}
               <td class="code num">54101</td>
               <td class="name">Non-Countering - Reduced Interest Loans - Long Term @ 8.95% / 180 Months<div class="plan-sub">Portal label: Reduced Interest- Long Term</div></td>
               <td class="apr num">8.95%</td>
-              <td class="num">180</td>
+              <td class="term num">180</td>
               <td class="fee num">5.6%</td>
               <td class="num range">$3,000–$100,000</td>
               <td><span class="type-badge nc">Non-Counter</span></td>
@@ -405,7 +469,7 @@ table{min-width:min(780px,100%)}
               <td class="code num">54126</td>
               <td class="name">Non-Countering - Reduced Interest Loans - Long Term @ 8.95% / 120 Months<div class="plan-sub">Portal label: Reduced Interest- Long Term</div></td>
               <td class="apr num">8.95%</td>
-              <td class="num">120</td>
+              <td class="term num">120</td>
               <td class="fee num">5.1%</td>
               <td class="num range">$3,000–$100,000</td>
               <td><span class="type-badge nc">Non-Counter</span></td>
@@ -415,7 +479,7 @@ table{min-width:min(780px,100%)}
               <td class="code num">54626</td>
               <td class="name">Non-Countering - Hybrid Loan @ 8.95% / 6NINP/ 120 Months<div class="plan-sub">Portal label: Hybrid Loan</div></td>
               <td class="apr num">8.95%</td>
-              <td class="num">120</td>
+              <td class="term num">120</td>
               <td class="fee num">7.1%</td>
               <td class="num range">$3,000–$100,000</td>
               <td><span class="type-badge nc">Non-Counter</span></td>
@@ -425,7 +489,7 @@ table{min-width:min(780px,100%)}
               <td class="code num">54649</td>
               <td class="name">Non-Countering - Hybrid Loan @ 12.95% / 6NINP/ 120 Months<div class="plan-sub">Portal label: Standard - 1295 - 126</div></td>
               <td class="apr num">12.95%</td>
-              <td class="num">120</td>
+              <td class="term num">120</td>
               <td class="fee num">4.1%</td>
               <td class="num range">$3,000–$100,000</td>
               <td><span class="type-badge nc">Non-Counter</span></td>
@@ -435,7 +499,7 @@ table{min-width:min(780px,100%)}
               <td class="code num">52012</td>
               <td class="name">12 Months, Zero Interest with NO Monthly Payments - Same as Cash<div class="plan-sub">Portal label: Zero interest/ No Monthly Same as Cash</div></td>
               <td class="apr num">0%</td>
-              <td class="num">12</td>
+              <td class="term num">12</td>
               <td class="fee num">8.1%</td>
               <td class="num range">$1,000–$100,000</td>
               <td><span class="type-badge nc">Non-Counter</span></td>
@@ -445,7 +509,7 @@ table{min-width:min(780px,100%)}
               <td class="code num">4089</td>
               <td class="name">Reduced Interest Loans - Long Term @ 6.99% / 180 Months<div class="plan-sub">Portal label: Standard - 699 - 180</div></td>
               <td class="apr num">6.99%</td>
-              <td class="num">180</td>
+              <td class="term num">180</td>
               <td class="fee num">9.6%</td>
               <td class="num range">$3,000–$100,000</td>
               <td><span class="type-badge std">Standard</span></td>
@@ -455,7 +519,7 @@ table{min-width:min(780px,100%)}
               <td class="code num">4102</td>
               <td class="name">Reduced Interest Loans - Long Term @ 6.99% / 144 Months<div class="plan-sub">Portal label: Standard - 699 - 144</div></td>
               <td class="apr num">6.99%</td>
-              <td class="num">144</td>
+              <td class="term num">144</td>
               <td class="fee num">8.6%</td>
               <td class="num range">$3,000–$100,000</td>
               <td><span class="type-badge std">Standard</span></td>
@@ -465,7 +529,7 @@ table{min-width:min(780px,100%)}
               <td class="code num">2024</td>
               <td class="name">24 Months, Zero Interest with NO Monthly Payments- Same as Cash<div class="plan-sub">Portal label: No Interest No Pay - 24 Mo</div></td>
               <td class="apr num">0%</td>
-              <td class="num">24</td>
+              <td class="term num">24</td>
               <td class="fee num">13%</td>
               <td class="num range">$1,000–$100,000</td>
               <td><span class="type-badge std">Standard</span></td>
@@ -475,7 +539,7 @@ table{min-width:min(780px,100%)}
               <td class="code num">3048</td>
               <td class="name">48 Months, Zero Interest with 48 Equal Monthly Payments<div class="plan-sub">Portal label: Equal Pay No Interest - 48 Mo</div></td>
               <td class="apr num">0%</td>
-              <td class="num">48</td>
+              <td class="term num">48</td>
               <td class="fee num">14.5%</td>
               <td class="num range">$1,000–$100,000</td>
               <td><span class="type-badge std">Standard</span></td>
@@ -520,7 +584,7 @@ table{min-width:min(780px,100%)}
               <td class="code num">87125</td>
               <td class="name">Fixed APR of 11.99% for 180 months</td>
               <td class="apr num">11.99%</td>
-              <td class="num">180</td>
+              <td class="term num">180</td>
               <td class="fee num">FREE</td>
               <td class="num range">$5,000–$100,000</td>
               <td class="why">FREE fee · 180 mo Fixed APR</td>
@@ -529,7 +593,7 @@ table{min-width:min(780px,100%)}
               <td class="code num">89708</td>
               <td class="name">Fixed APR of 6.99% for 180 months</td>
               <td class="apr num">6.99%</td>
-              <td class="num">180</td>
+              <td class="term num">180</td>
               <td class="fee num">14.99%</td>
               <td class="num range">$5,000–$100,000</td>
               <td class="why">Low APR · 180 mo</td>
@@ -538,7 +602,7 @@ table{min-width:min(780px,100%)}
               <td class="code num">86860</td>
               <td class="name">Fixed APR of 6.99% for 144 months</td>
               <td class="apr num">6.99%</td>
-              <td class="num">144</td>
+              <td class="term num">144</td>
               <td class="fee num">12.49%</td>
               <td class="num range">$5,000–$100,000</td>
               <td class="why">Low APR · 144 mo</td>
@@ -588,9 +652,9 @@ table{min-width:min(780px,100%)}
               <td class="code num">84083</td>
               <td class="name">5.9% interest rate • 120 months • Standard</td>
               <td class="apr num">5.9%</td>
-              <td class="num">120</td>
+              <td class="term num">120</td>
               <td class="fee num">14%</td>
-              <td class="fee num">—</td>
+              <td class="risk num">—</td>
               <td class="allin num">14%</td>
               <td><span class="tier tier1">Tier 1</span></td>
               <td class="num range">$1,000–$100,000</td>
@@ -600,9 +664,9 @@ table{min-width:min(780px,100%)}
               <td class="code num">81229</td>
               <td class="name">12.9% interest rate • 120 months • Standard</td>
               <td class="apr num">12.9%</td>
-              <td class="num">120</td>
+              <td class="term num">120</td>
               <td class="fee num">1.5%</td>
-              <td class="fee num">—</td>
+              <td class="risk num">—</td>
               <td class="allin num">1.5%</td>
               <td><span class="tier tier2">Tier 2</span></td>
               <td class="num range">$1,000–$100,000</td>
@@ -612,9 +676,9 @@ table{min-width:min(780px,100%)}
               <td class="code num">82243</td>
               <td class="name">11.9% interest rate • 120 months • Standard</td>
               <td class="apr num">11.9%</td>
-              <td class="num">120</td>
+              <td class="term num">120</td>
               <td class="fee num">4%</td>
-              <td class="fee num">—</td>
+              <td class="risk num">—</td>
               <td class="allin num">4%</td>
               <td><span class="tier tier2">Tier 2</span></td>
               <td class="num range">$1,000–$100,000</td>
@@ -624,9 +688,9 @@ table{min-width:min(780px,100%)}
               <td class="code num">83101</td>
               <td class="name">7.9% interest rate • 120 months • Standard</td>
               <td class="apr num">7.9%</td>
-              <td class="num">120</td>
+              <td class="term num">120</td>
               <td class="fee num">13.5%</td>
-              <td class="fee num">—</td>
+              <td class="risk num">—</td>
               <td class="allin num">13.5%</td>
               <td><span class="tier tier2">Tier 2</span></td>
               <td class="num range">$1,000–$100,000</td>
@@ -636,9 +700,9 @@ table{min-width:min(780px,100%)}
               <td class="code num">80771</td>
               <td class="name">15.99% interest rate • 120 months • Standard</td>
               <td class="apr num">15.99%</td>
-              <td class="num">120</td>
+              <td class="term num">120</td>
               <td class="fee num">FREE</td>
-              <td class="fee num">6.5%</td>
+              <td class="risk num">6.5%</td>
               <td class="allin num">6.5%</td>
               <td><span class="tier tier3">Tier 3</span></td>
               <td class="num range">$1,000–$100,000</td>
@@ -648,9 +712,9 @@ table{min-width:min(780px,100%)}
               <td class="code num">80389</td>
               <td class="name">14.9% interest rate • 120 months • Standard</td>
               <td class="apr num">14.9%</td>
-              <td class="num">120</td>
+              <td class="term num">120</td>
               <td class="fee num">2.5%</td>
-              <td class="fee num">6.5%</td>
+              <td class="risk num">6.5%</td>
               <td class="allin num">9%</td>
               <td><span class="tier tier3">Tier 3</span></td>
               <td class="num range">$1,000–$100,000</td>
@@ -660,9 +724,9 @@ table{min-width:min(780px,100%)}
               <td class="code num">84061</td>
               <td class="name">13.5% interest rate • 120 months • Standard</td>
               <td class="apr num">13.5%</td>
-              <td class="num">120</td>
+              <td class="term num">120</td>
               <td class="fee num">6%</td>
-              <td class="fee num">6.5%</td>
+              <td class="risk num">6.5%</td>
               <td class="allin num">12.5%</td>
               <td><span class="tier tier3">Tier 3</span></td>
               <td class="num range">$1,000–$100,000</td>
@@ -672,9 +736,9 @@ table{min-width:min(780px,100%)}
               <td class="code num">80718</td>
               <td class="name">12.9% interest rate • 120 months • Standard</td>
               <td class="apr num">12.9%</td>
-              <td class="num">120</td>
+              <td class="term num">120</td>
               <td class="fee num">7.5%</td>
-              <td class="fee num">6.5%</td>
+              <td class="risk num">6.5%</td>
               <td class="allin num">14%</td>
               <td><span class="tier tier3">Tier 3</span></td>
               <td class="num range">$1,000–$100,000</td>
@@ -684,9 +748,9 @@ table{min-width:min(780px,100%)}
               <td class="code num">83908</td>
               <td class="name">11.9% interest rate • 120 months • Standard</td>
               <td class="apr num">11.9%</td>
-              <td class="num">120</td>
+              <td class="term num">120</td>
               <td class="fee num">10%</td>
-              <td class="fee num">6.5%</td>
+              <td class="risk num">6.5%</td>
               <td class="allin num">16.5%</td>
               <td><span class="tier tier3">Tier 3</span></td>
               <td class="num range">$1,000–$100,000</td>
@@ -696,9 +760,9 @@ table{min-width:min(780px,100%)}
               <td class="code num">83422</td>
               <td class="name">10.9% interest rate • 120 months • Standard</td>
               <td class="apr num">10.9%</td>
-              <td class="num">120</td>
+              <td class="term num">120</td>
               <td class="fee num">13.5%</td>
-              <td class="fee num">6.5%</td>
+              <td class="risk num">6.5%</td>
               <td class="allin num">20%</td>
               <td><span class="tier tier3">Tier 3</span></td>
               <td class="num range">$1,000–$100,000</td>
@@ -708,9 +772,9 @@ table{min-width:min(780px,100%)}
               <td class="code num">81828</td>
               <td class="name">9.9% interest rate • 120 months • Standard</td>
               <td class="apr num">9.9%</td>
-              <td class="num">120</td>
+              <td class="term num">120</td>
               <td class="fee num">16%</td>
-              <td class="fee num">6.5%</td>
+              <td class="risk num">6.5%</td>
               <td class="allin num overcap">22.5% †</td>
               <td><span class="tier tier3">Tier 3</span></td>
               <td class="num range">$1,000–$100,000</td>
@@ -723,9 +787,9 @@ table{min-width:min(780px,100%)}
               <td class="code num">81572</td>
               <td class="name">16.99% interest rate • 144 months • Standard</td>
               <td class="apr num">16.99%</td>
-              <td class="num">144</td>
+              <td class="term num">144</td>
               <td class="fee num">2.5%</td>
-              <td class="fee num">8.5%</td>
+              <td class="risk num">8.5%</td>
               <td class="allin num">11%</td>
               <td><span class="tier tier4">Tier 4</span></td>
               <td class="num range">$7,501–$100,000</td>
@@ -738,9 +802,9 @@ table{min-width:min(780px,100%)}
               <td class="code num">81145</td>
               <td class="name">11.9% interest rate • 180 months • Standard</td>
               <td class="apr num">11.9%</td>
-              <td class="num">180</td>
+              <td class="term num">180</td>
               <td class="fee num">FREE</td>
-              <td class="fee num">—</td>
+              <td class="risk num">—</td>
               <td class="allin num">0%</td>
               <td><span class="tier tier1">Tier 1</span></td>
               <td class="num range">$25,001–$100,000</td>
@@ -750,9 +814,9 @@ table{min-width:min(780px,100%)}
               <td class="code num">81751</td>
               <td class="name">5.9% interest rate • 180 months • Standard</td>
               <td class="apr num">5.9%</td>
-              <td class="num">180</td>
+              <td class="term num">180</td>
               <td class="fee num">14%</td>
-              <td class="fee num">—</td>
+              <td class="risk num">—</td>
               <td class="allin num">14%</td>
               <td><span class="tier tier1">Tier 1</span></td>
               <td class="num range">$25,001–$100,000</td>
@@ -762,9 +826,9 @@ table{min-width:min(780px,100%)}
               <td class="code num">81434</td>
               <td class="name">12.9% interest rate • 180 months • Standard</td>
               <td class="apr num">12.9%</td>
-              <td class="num">180</td>
+              <td class="term num">180</td>
               <td class="fee num">1.5%</td>
-              <td class="fee num">—</td>
+              <td class="risk num">—</td>
               <td class="allin num">1.5%</td>
               <td><span class="tier tier2">Tier 2</span></td>
               <td class="num range">$25,001–$100,000</td>
@@ -774,9 +838,9 @@ table{min-width:min(780px,100%)}
               <td class="code num">80484</td>
               <td class="name">7.9% interest rate • 180 months • Standard</td>
               <td class="apr num">7.9%</td>
-              <td class="num">180</td>
+              <td class="term num">180</td>
               <td class="fee num">13.5%</td>
-              <td class="fee num">—</td>
+              <td class="risk num">—</td>
               <td class="allin num">13.5%</td>
               <td><span class="tier tier2">Tier 2</span></td>
               <td class="num range">$25,001–$100,000</td>
