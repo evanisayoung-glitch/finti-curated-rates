@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Vivid Windows · Finti Curated Rate Sheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+
+:root{
+  --navy:#0B1F3A;
+  --navy-mid:#143052;
+  --gold:#F59E0B;
+  --gold-soft:#FEF3C7;
+  --cta:#2C75FF;
+  --cta-deep:#1E5ACC;
+  --bg:#F4F6F9;
+  --card:#FFFFFF;
+  --text:#0F172A;
+  --muted:#475569;
+  --border:#E2E8F0;
+  --first:#15803D;
+  --first-soft:#ECFDF3;
+  --blue-soft:#EFF6FF;
+  --radius:12px;
+  --shadow-hero:
+    0 1px 2px rgba(11,31,58,.08),
+    0 8px 20px rgba(11,31,58,.12),
+    0 24px 48px rgba(11,31,58,.10);
+  --shadow-table:
+    0 1px 1px rgba(11,31,58,.03),
+    0 4px 12px rgba(11,31,58,.04);
+  font-family:'IBM Plex Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px}
+body{
+  background:var(--bg);color:var(--text);line-height:1.5;
+  -webkit-font-smoothing:antialiased;min-height:100vh;
+}
+.top{
+  background:linear-gradient(165deg,var(--navy) 0%,var(--navy-mid) 100%);
+  color:#fff;padding:26px 32px 30px;position:relative;overflow:hidden;
+  box-shadow:var(--shadow-hero);
+}
+.top::before{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+  background:linear-gradient(90deg,var(--gold) 0%,#FBBF24 40%,transparent 100%);
+  pointer-events:none;
+}
+.top-inner{max-width:1180px;margin:0 auto;position:relative;z-index:1}
+.brand-row{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:16px;flex-wrap:wrap;margin-bottom:20px;
+}
+.dual{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.logo-well{
+  display:inline-flex;align-items:center;justify-content:center;
+  background:#FFFFFF;border-radius:8px;padding:7px 12px;
+  height:52px;border:1px solid rgba(255,255,255,.18);
+}
+.logo-well img{height:36px;width:auto;max-width:160px;object-fit:contain;display:block}
+.logo-well.rb img{height:38px;max-width:200px}
+.x{font-size:15px;font-weight:500;color:#8FA3C0;line-height:1;padding:0 2px}
+.partner-pill{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);
+  padding:7px 12px;border-radius:6px;font-size:.8125rem;font-weight:500;
+  color:#C5D4E8;letter-spacing:0;
+}
+.partner-pill .dot{
+  width:6px;height:6px;border-radius:99px;background:var(--gold);flex-shrink:0;
+}
+h1{font-size:1.625rem;font-weight:700;letter-spacing:-.025em;margin:0 0 6px;line-height:1.22}
+.lede{font-size:.9375rem;color:#A8BCD8;font-weight:400;max-width:720px}
+.meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:14px}
+.badge{
+  display:inline-flex;align-items:center;gap:6px;font-size:.75rem;font-weight:500;
+  padding:5px 10px;border-radius:6px;
+}
+.badge.std{background:rgba(245,158,11,.16);color:#FDE68A;border:1px solid rgba(245,158,11,.28)}
+.badge.count{background:rgba(255,255,255,.07);color:#D5E0F0;border:1px solid rgba(255,255,255,.1)}
+.badge.date{background:transparent;color:#8FA3C0;border:1px solid rgba(255,255,255,.08);padding:5px 10px}
+.wrap{max-width:1180px;margin:0 auto;padding:24px 24px 40px}
+.note{
+  background:transparent;border:none;border-left:3px solid var(--gold);
+  padding:4px 0 4px 14px;font-size:.875rem;color:var(--muted);margin-bottom:22px;
+}
+.note strong{color:var(--text);font-weight:600}
+.waterfall{
+  display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:0;align-items:stretch;
+  margin-bottom:28px;
+}
+@media (max-width:900px){
+  .waterfall{grid-template-columns:1fr;gap:10px}
+  .wf-join{display:none}
+}
+.wf-card{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+  padding:16px 18px;position:relative;
+}
+.wf-card.first{border-top:3px solid var(--first)}
+.wf-card.second{border-top:3px solid var(--cta)}
+.wf-join{
+  display:flex;align-items:center;justify-content:center;padding:0 10px;
+  color:#94A3B8;font-size:.75rem;font-weight:600;letter-spacing:.02em;
+}
+.wf-join span{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:36px;height:28px;border-radius:99px;background:#EEF2F7;
+  border:1px solid var(--border);color:var(--muted);font-size:.6875rem;
+}
+.wf-card .step{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:24px;height:24px;border-radius:99px;font-size:.75rem;font-weight:700;
+  margin-bottom:8px;font-variant-numeric:tabular-nums;
+}
+.wf-card.first .step{background:var(--first);color:#fff}
+.wf-card.second .step{background:var(--cta);color:#fff}
+.wf-card .k{font-size:.8125rem;font-weight:500;color:var(--muted);margin-bottom:2px}
+.wf-card .t{font-size:1.0625rem;font-weight:700;color:var(--navy);margin-bottom:4px;letter-spacing:-.01em}
+.wf-card .d{font-size:.875rem;color:var(--muted);line-height:1.45}
+.section{margin-bottom:28px}
+.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+.section-head h2{
+  font-size:1.1875rem;font-weight:700;letter-spacing:-.015em;color:var(--navy);
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+}
+.look-pill{
+  display:inline-flex;align-items:center;font-size:.75rem;font-weight:600;
+  padding:3px 9px;border-radius:6px;
+}
+.look-pill.first{background:var(--first-soft);color:var(--first)}
+.look-pill.second{background:var(--blue-soft);color:var(--cta-deep)}
+.section-head .sub{font-size:.8125rem;color:var(--muted);font-weight:400}
+.table-card{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+  box-shadow:var(--shadow-table);overflow:hidden;margin-bottom:16px;
+}
+.table-card.accent-first{border-top:2px solid var(--first)}
+.table-card.accent-second{border-top:2px solid var(--cta)}
+.table-label{
+  font-size:.8125rem;font-weight:600;color:var(--navy);padding:12px 14px 0;
+}
+.table-label span{font-weight:400;color:var(--muted)}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:.875rem;min-width:780px}
+thead th{
+  position:sticky;top:0;z-index:5;background:var(--navy);color:#E8EEF7;
+  font-size:.75rem;font-weight:600;letter-spacing:0;
+  text-align:left;padding:11px 14px;white-space:nowrap;
+  border-bottom:2px solid var(--gold);
+}
+tbody td{
+  padding:11px 14px;border-bottom:1px solid var(--border);color:var(--muted);
+  vertical-align:middle;background:var(--card);
+}
+tbody tr:nth-child(even) td{background:#F8FAFC}
+tbody tr:hover td{background:#FFFBEB}
+tbody tr:last-child td{border-bottom:none}
+tr.term-group td{
+  background:#EEF2F7 !important;color:var(--navy);font-weight:600;font-size:.75rem;
+  padding:8px 14px;border-bottom:1px solid var(--border);
+}
+td.num, th.num{text-align:right;font-variant-numeric:tabular-nums}
+th.num{text-align:right}
+td.fee{font-weight:700;color:var(--navy);white-space:nowrap;font-variant-numeric:tabular-nums}
+td.allin{font-weight:700;color:var(--navy);white-space:nowrap;font-variant-numeric:tabular-nums}
+td.apr{font-weight:700;color:var(--cta-deep);white-space:nowrap;font-variant-numeric:tabular-nums}
+td.name{color:var(--text);font-weight:600}
+td.code{font-weight:600;color:var(--muted);font-size:.8125rem;white-space:nowrap;font-variant-numeric:tabular-nums}
+td.range{white-space:nowrap;font-size:.8125rem;font-variant-numeric:tabular-nums}
+td.why, td.elig{font-size:.8125rem;color:var(--muted);max-width:220px}
+.plan-sub{font-size:.75rem;font-weight:400;color:#64748B;margin-top:2px}
+.tier{
+  display:inline-block;font-size:.75rem;font-weight:600;padding:2px 8px;
+  border-radius:5px;white-space:nowrap;
+}
+.tier.tier3{background:#EEF2FF;color:#3730A3}
+.tier.tier4{background:#F1F5F9;color:#334155}
+.tier.tierpromo{background:#FEF3C7;color:#92400E}
+.foot-note{
+  font-size:.8125rem;color:var(--muted);padding:10px 14px 14px;line-height:1.5;
+}
+footer{
+  max-width:1180px;margin:0 auto;padding:8px 24px 48px;color:var(--muted);
+  font-size:.8125rem;line-height:1.55;border-top:1px solid var(--border);
+}
+footer .f-inner{padding-top:18px}
+footer strong{color:var(--text);font-weight:600}
+@media (max-width:720px){
+  .top{padding:20px 16px 24px}
+  h1{font-size:1.3125rem}
+  .wrap{padding:18px 14px 36px}
+  .logo-well{height:46px;padding:6px 10px}
+  .logo-well img{height:30px}
+  .logo-well.rb img{height:32px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+@media print{
+  body{background:#fff}
+  .top,thead th,tr.term-group td{print-color-adjust:exact;-webkit-print-color-adjust:exact}
+  .table-card{box-shadow:none;break-inside:avoid}
+  .section{break-inside:avoid}
+}
+
+
+.type-badge{
+  display:inline-block;font-size:.6875rem;font-weight:600;padding:2px 8px;
+  border-radius:5px;white-space:nowrap;letter-spacing:0;
+}
+.type-badge.nc{
+  background:rgba(245,158,11,.16);color:#92400E;border:1px solid rgba(245,158,11,.35);
+}
+.type-badge.std{
+  background:rgba(44,117,255,.12);color:#1E5ACC;border:1px solid rgba(44,117,255,.28);
+}
+tr.nc-row td{background:#FFFBEB !important}
+tr.nc-row:nth-child(even) td{background:#FEF3C7 !important}
+tr.nc-row:hover td{background:#FDE68A !important}
+.logo-well.vw{background:#0B0B0B;padding:4px 8px}
+.logo-well.vw img{height:40px;width:auto;max-width:170px;object-fit:contain;display:block}
+.tier.tier1{background:#ECFDF3;color:#166534}
+.tier.tier2{background:#EFF6FF;color:#1E40AF}
+.overcap{color:#B45309;font-weight:700}
+.legend-nc{
+  font-size:.8125rem;color:var(--muted);padding:0 14px 12px;line-height:1.5;
+}
+.legend-nc .type-badge{margin-right:4px;vertical-align:middle}
+
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="top-inner">
+    <div class="brand-row">
+      <div class="dual">
+        <span class="logo-well" title="Finti">
+          <img src="data:image/png;base64,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" alt="Finti" width="88" height="40" />
+        </span>
+        <span class="x" aria-hidden="true">×</span>
+        <span class="logo-well vw" title="Vivid Windows">
+          <img src="data:image/png;base64,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" alt="Vivid Windows" width="160" height="40" />
+        </span>
+      </div>
+      <span class="partner-pill"><span class="dot" aria-hidden="true"></span>Dealer partner · vividwindows.com</span>
+    </div>
+    <h1>Vivid Windows · Finti Curated Rate Sheet</h1>
+    <p class="lede">Primary first look: Service Finance <em>or</em> Sunlight (dealer picks) · Second look: always Foundation · Home improvement · Typical Foundation risk shown (T3 6.5% / T4 8.5%).</p>
+    <div class="meta">
+      <span class="badge std">Home improvement</span>
+      <span class="badge count">9 Service Finance</span>
+      <span class="badge count">3 Sunlight</span>
+      <span class="badge count">16 Foundation</span>
+      <span class="badge date">September 29, 2026 · CT</span>
+    </div>
+  </div>
+</header>
+<main class="wrap">
+  <div class="note">
+    <strong>Playbook:</strong> Primary first look is <strong>Service Finance or Sunlight</strong> — dealer chooses which to run first (never frame Sunlight as a third look). Prefer Non-Counter on Service Finance when it fits. <strong>Foundation is always second look</strong> if the first declines or credit is tougher (T3–T4).
+    Prefer FREE / low-fee installment rungs when approval allows. Foundation all-in on this sheet = base MDR + Typical Brain risk (<strong>T3 6.5%</strong>, <strong>T4 8.5%</strong>; T1/T2 no risk adder).
+    Rates subject to lender approval. Not for homeowner distribution without Finti.
+  </div>
+
+  <div class="waterfall" role="list" aria-label="Submission playbook">
+    <div class="wf-card first" role="listitem">
+      <span class="step" aria-hidden="true">1</span>
+      <div class="k">First look · dealer pick</div>
+      <div class="t">Service Finance</div>
+      <div class="d">Alternate primary. 5 Non-Counter + 4 Standard. Go-to Non-Counter is 54101 (8.95% / 180). Prefer Non-Counter when it fits.</div>
+    </div>
+    <div class="wf-join" aria-hidden="true"><span>or</span></div>
+    <div class="wf-card first" role="listitem">
+      <span class="step" aria-hidden="true">1</span>
+      <div class="k">First look · dealer pick</div>
+      <div class="t">Sunlight</div>
+      <div class="d">Alternate primary — same standing as Service Finance, not a third look. 3 CERTAIN Standard HI Fixed-APR plans from Brain/LGS.</div>
+    </div>
+    <div class="wf-join" aria-hidden="true"><span>then</span></div>
+    <div class="wf-card second" role="listitem">
+      <span class="step" aria-hidden="true">2</span>
+      <div class="k">Second look</div>
+      <div class="t">Foundation Finance</div>
+      <div class="d">Always second. 16 Standard installment products matched to Brain/LGS. Typical risk T3 6.5% / T4 8.5%.</div>
+    </div>
+  </div>
+
+  <section class="section" id="service-finance" aria-labelledby="sfc-heading">
+    <div class="section-head">
+      <div>
+        <h2 id="sfc-heading">Service Finance <span class="look-pill first">First look</span></h2>
+        <div class="sub">Product names from LGS / Ultimate Brain · Type from Countering tag</div>
+      </div>
+    </div>
+    <div class="table-card accent-first">
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr>
+              <th class="num" scope="col">Product Code</th>
+              <th scope="col">Plan</th>
+              <th class="num" scope="col">APR</th>
+              <th class="num" scope="col">Term (mo)</th>
+              <th class="num" scope="col">Dealer fee</th>
+              <th class="num" scope="col">Min – Max</th>
+              <th scope="col">Type</th>
+              <th scope="col">Why we use it</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="nc-row">
+              <td class="code num">54101</td>
+              <td class="name">Non-Countering - Reduced Interest Loans - Long Term @ 8.95% / 180 Months<div class="plan-sub">Portal label: Reduced Interest- Long Term</div></td>
+              <td class="apr num">8.95%</td>
+              <td class="num">180</td>
+              <td class="fee num">5.6%</td>
+              <td class="num range">$3,000–$100,000</td>
+              <td><span class="type-badge nc">Non-Counter</span></td>
+              <td class="why">Go-to long term — smallest monthly payments</td>
+            </tr>
+            <tr class="nc-row">
+              <td class="code num">54126</td>
+              <td class="name">Non-Countering - Reduced Interest Loans - Long Term @ 8.95% / 120 Months<div class="plan-sub">Portal label: Reduced Interest- Long Term</div></td>
+              <td class="apr num">8.95%</td>
+              <td class="num">120</td>
+              <td class="fee num">5.1%</td>
+              <td class="num range">$3,000–$100,000</td>
+              <td><span class="type-badge nc">Non-Counter</span></td>
+              <td class="why">Shorter twin of go-to</td>
+            </tr>
+            <tr class="nc-row">
+              <td class="code num">54626</td>
+              <td class="name">Non-Countering - Hybrid Loan @ 8.95% / 6NINP/ 120 Months<div class="plan-sub">Portal label: Hybrid Loan</div></td>
+              <td class="apr num">8.95%</td>
+              <td class="num">120</td>
+              <td class="fee num">7.1%</td>
+              <td class="num range">$3,000–$100,000</td>
+              <td><span class="type-badge nc">Non-Counter</span></td>
+              <td class="why">6 mo no pay, then 8.95%</td>
+            </tr>
+            <tr class="nc-row">
+              <td class="code num">54649</td>
+              <td class="name">Non-Countering - Hybrid Loan @ 12.95% / 6NINP/ 120 Months<div class="plan-sub">Portal label: Standard - 1295 - 126</div></td>
+              <td class="apr num">12.95%</td>
+              <td class="num">120</td>
+              <td class="fee num">4.1%</td>
+              <td class="num range">$3,000–$100,000</td>
+              <td><span class="type-badge nc">Non-Counter</span></td>
+              <td class="why">6NINP hybrid · lower dealer fee</td>
+            </tr>
+            <tr class="nc-row">
+              <td class="code num">52012</td>
+              <td class="name">12 Months, Zero Interest with NO Monthly Payments - Same as Cash<div class="plan-sub">Portal label: Zero interest/ No Monthly Same as Cash</div></td>
+              <td class="apr num">0%</td>
+              <td class="num">12</td>
+              <td class="fee num">8.1%</td>
+              <td class="num range">$1,000–$100,000</td>
+              <td><span class="type-badge nc">Non-Counter</span></td>
+              <td class="why">Short SAC · Non-Counter</td>
+            </tr>
+            <tr>
+              <td class="code num">4089</td>
+              <td class="name">Reduced Interest Loans - Long Term @ 6.99% / 180 Months<div class="plan-sub">Portal label: Standard - 699 - 180</div></td>
+              <td class="apr num">6.99%</td>
+              <td class="num">180</td>
+              <td class="fee num">9.6%</td>
+              <td class="num range">$3,000–$100,000</td>
+              <td><span class="type-badge std">Standard</span></td>
+              <td class="why">Low APR · 180 mo</td>
+            </tr>
+            <tr>
+              <td class="code num">4102</td>
+              <td class="name">Reduced Interest Loans - Long Term @ 6.99% / 144 Months<div class="plan-sub">Portal label: Standard - 699 - 144</div></td>
+              <td class="apr num">6.99%</td>
+              <td class="num">144</td>
+              <td class="fee num">8.6%</td>
+              <td class="num range">$3,000–$100,000</td>
+              <td><span class="type-badge std">Standard</span></td>
+              <td class="why">Low APR · 144 mo</td>
+            </tr>
+            <tr>
+              <td class="code num">2024</td>
+              <td class="name">24 Months, Zero Interest with NO Monthly Payments- Same as Cash<div class="plan-sub">Portal label: No Interest No Pay - 24 Mo</div></td>
+              <td class="apr num">0%</td>
+              <td class="num">24</td>
+              <td class="fee num">13%</td>
+              <td class="num range">$1,000–$100,000</td>
+              <td><span class="type-badge std">Standard</span></td>
+              <td class="why">24 mo no-pay SAC</td>
+            </tr>
+            <tr>
+              <td class="code num">3048</td>
+              <td class="name">48 Months, Zero Interest with 48 Equal Monthly Payments<div class="plan-sub">Portal label: Equal Pay No Interest - 48 Mo</div></td>
+              <td class="apr num">0%</td>
+              <td class="num">48</td>
+              <td class="fee num">14.5%</td>
+              <td class="num range">$1,000–$100,000</td>
+              <td><span class="type-badge std">Standard</span></td>
+              <td class="why">Equal-pay zero interest</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="legend-nc">
+        <span class="type-badge nc">Non-Counter</span> = approve-or-decline (not an automatic counter-offer).
+        <span class="type-badge std">Standard</span> = may receive lender counter options.
+        Names are 1:1 LGS / Brain Display Name.
+      </p>
+    </div>
+  </section>
+
+
+  <section class="section" id="sunlight" aria-labelledby="sl-heading">
+    <div class="section-head">
+      <div>
+        <h2 id="sl-heading">Sunlight <span class="look-pill first">Alternate first look</span></h2>
+        <div class="sub">Product names 1:1 Brain / LGS · Standard HI Fixed APR only · HVAC rows excluded</div>
+      </div>
+    </div>
+    <div class="table-card accent-first">
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr>
+              <th class="num" scope="col">Product Code</th>
+              <th scope="col">Plan</th>
+              <th class="num" scope="col">APR</th>
+              <th class="num" scope="col">Term (mo)</th>
+              <th class="num" scope="col">Dealer fee</th>
+              <th class="num" scope="col">Min – Max</th>
+              <th scope="col">Why we use it</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="code num">87125</td>
+              <td class="name">Fixed APR of 11.99% for 180 months</td>
+              <td class="apr num">11.99%</td>
+              <td class="num">180</td>
+              <td class="fee num">FREE</td>
+              <td class="num range">$5,000–$100,000</td>
+              <td class="why">FREE fee · 180 mo Fixed APR</td>
+            </tr>
+            <tr>
+              <td class="code num">89708</td>
+              <td class="name">Fixed APR of 6.99% for 180 months</td>
+              <td class="apr num">6.99%</td>
+              <td class="num">180</td>
+              <td class="fee num">14.99%</td>
+              <td class="num range">$5,000–$100,000</td>
+              <td class="why">Low APR · 180 mo</td>
+            </tr>
+            <tr>
+              <td class="code num">86860</td>
+              <td class="name">Fixed APR of 6.99% for 144 months</td>
+              <td class="apr num">6.99%</td>
+              <td class="num">144</td>
+              <td class="fee num">12.49%</td>
+              <td class="num range">$5,000–$100,000</td>
+              <td class="why">Low APR · 144 mo</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="foot-note">
+        Names are 1:1 Brain / LGS product_name (Interest Type expansion). Fee / term / APR from saved Vivid Sunlight HTML matched to Brain.
+        Deferred 21.49%/84 and 20.99%/84 (fee 0) omitted — no Brain match. All HVAC-labeled rows excluded (Standard-lock).
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="foundation" aria-labelledby="ff-heading">
+    <div class="section-head">
+      <div>
+        <h2 id="ff-heading">Foundation Finance <span class="look-pill second">Second look</span></h2>
+        <div class="sub">Standard (home improvement) · Product Codes from Ultimate Brain · LGS plan names</div>
+      </div>
+    </div>
+
+    <div class="table-card accent-second">
+      <div class="table-label">Installment ladder <span>· 16 products · Typical risk T3 6.5% / T4 8.5%</span></div>
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr>
+              <th class="num" scope="col">Product Code</th>
+              <th scope="col">Plan</th>
+              <th class="num" scope="col">APR</th>
+              <th class="num" scope="col">Term (mo)</th>
+              <th class="num" scope="col">Base MDR</th>
+              <th class="num" scope="col">Risk</th>
+              <th class="num" scope="col">All-in</th>
+              <th scope="col">Tier</th>
+              <th class="num" scope="col">Min – Max</th>
+              <th scope="col">Eligibility</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="term-group">
+              <td colspan="10">120 months · ranges vary by product (see Min – Max)</td>
+            </tr>
+            <tr>
+              <td class="code num">84083</td>
+              <td class="name">5.9% interest rate • 120 months • Standard</td>
+              <td class="apr num">5.9%</td>
+              <td class="num">120</td>
+              <td class="fee num">14%</td>
+              <td class="fee num">—</td>
+              <td class="allin num">14%</td>
+              <td><span class="tier tier1">Tier 1</span></td>
+              <td class="num range">$1,000–$100,000</td>
+              <td class="elig">No extra requirement</td>
+            </tr>
+            <tr>
+              <td class="code num">81229</td>
+              <td class="name">12.9% interest rate • 120 months • Standard</td>
+              <td class="apr num">12.9%</td>
+              <td class="num">120</td>
+              <td class="fee num">1.5%</td>
+              <td class="fee num">—</td>
+              <td class="allin num">1.5%</td>
+              <td><span class="tier tier2">Tier 2</span></td>
+              <td class="num range">$1,000–$100,000</td>
+              <td class="elig">No extra requirement</td>
+            </tr>
+            <tr>
+              <td class="code num">82243</td>
+              <td class="name">11.9% interest rate • 120 months • Standard</td>
+              <td class="apr num">11.9%</td>
+              <td class="num">120</td>
+              <td class="fee num">4%</td>
+              <td class="fee num">—</td>
+              <td class="allin num">4%</td>
+              <td><span class="tier tier2">Tier 2</span></td>
+              <td class="num range">$1,000–$100,000</td>
+              <td class="elig">No extra requirement</td>
+            </tr>
+            <tr>
+              <td class="code num">83101</td>
+              <td class="name">7.9% interest rate • 120 months • Standard</td>
+              <td class="apr num">7.9%</td>
+              <td class="num">120</td>
+              <td class="fee num">13.5%</td>
+              <td class="fee num">—</td>
+              <td class="allin num">13.5%</td>
+              <td><span class="tier tier2">Tier 2</span></td>
+              <td class="num range">$1,000–$100,000</td>
+              <td class="elig">No extra requirement</td>
+            </tr>
+            <tr>
+              <td class="code num">80771</td>
+              <td class="name">15.99% interest rate • 120 months • Standard</td>
+              <td class="apr num">15.99%</td>
+              <td class="num">120</td>
+              <td class="fee num">FREE</td>
+              <td class="fee num">6.5%</td>
+              <td class="allin num">6.5%</td>
+              <td><span class="tier tier3">Tier 3</span></td>
+              <td class="num range">$1,000–$100,000</td>
+              <td class="elig">No extra requirement</td>
+            </tr>
+            <tr>
+              <td class="code num">80389</td>
+              <td class="name">14.9% interest rate • 120 months • Standard</td>
+              <td class="apr num">14.9%</td>
+              <td class="num">120</td>
+              <td class="fee num">2.5%</td>
+              <td class="fee num">6.5%</td>
+              <td class="allin num">9%</td>
+              <td><span class="tier tier3">Tier 3</span></td>
+              <td class="num range">$1,000–$100,000</td>
+              <td class="elig">No extra requirement</td>
+            </tr>
+            <tr>
+              <td class="code num">84061</td>
+              <td class="name">13.5% interest rate • 120 months • Standard</td>
+              <td class="apr num">13.5%</td>
+              <td class="num">120</td>
+              <td class="fee num">6%</td>
+              <td class="fee num">6.5%</td>
+              <td class="allin num">12.5%</td>
+              <td><span class="tier tier3">Tier 3</span></td>
+              <td class="num range">$1,000–$100,000</td>
+              <td class="elig">No extra requirement</td>
+            </tr>
+            <tr>
+              <td class="code num">80718</td>
+              <td class="name">12.9% interest rate • 120 months • Standard</td>
+              <td class="apr num">12.9%</td>
+              <td class="num">120</td>
+              <td class="fee num">7.5%</td>
+              <td class="fee num">6.5%</td>
+              <td class="allin num">14%</td>
+              <td><span class="tier tier3">Tier 3</span></td>
+              <td class="num range">$1,000–$100,000</td>
+              <td class="elig">No extra requirement</td>
+            </tr>
+            <tr>
+              <td class="code num">83908</td>
+              <td class="name">11.9% interest rate • 120 months • Standard</td>
+              <td class="apr num">11.9%</td>
+              <td class="num">120</td>
+              <td class="fee num">10%</td>
+              <td class="fee num">6.5%</td>
+              <td class="allin num">16.5%</td>
+              <td><span class="tier tier3">Tier 3</span></td>
+              <td class="num range">$1,000–$100,000</td>
+              <td class="elig">No extra requirement</td>
+            </tr>
+            <tr>
+              <td class="code num">83422</td>
+              <td class="name">10.9% interest rate • 120 months • Standard</td>
+              <td class="apr num">10.9%</td>
+              <td class="num">120</td>
+              <td class="fee num">13.5%</td>
+              <td class="fee num">6.5%</td>
+              <td class="allin num">20%</td>
+              <td><span class="tier tier3">Tier 3</span></td>
+              <td class="num range">$1,000–$100,000</td>
+              <td class="elig">No extra requirement</td>
+            </tr>
+            <tr>
+              <td class="code num">81828</td>
+              <td class="name">9.9% interest rate • 120 months • Standard</td>
+              <td class="apr num">9.9%</td>
+              <td class="num">120</td>
+              <td class="fee num">16%</td>
+              <td class="fee num">6.5%</td>
+              <td class="allin num overcap">22.5% †</td>
+              <td><span class="tier tier3">Tier 3</span></td>
+              <td class="num range">$1,000–$100,000</td>
+              <td class="elig">No extra requirement</td>
+            </tr>
+            <tr class="term-group">
+              <td colspan="10">144 months · ranges vary by product (see Min – Max)</td>
+            </tr>
+            <tr>
+              <td class="code num">81572</td>
+              <td class="name">16.99% interest rate • 144 months • Standard</td>
+              <td class="apr num">16.99%</td>
+              <td class="num">144</td>
+              <td class="fee num">2.5%</td>
+              <td class="fee num">8.5%</td>
+              <td class="allin num">11%</td>
+              <td><span class="tier tier4">Tier 4</span></td>
+              <td class="num range">$7,501–$100,000</td>
+              <td class="elig">Contract &gt; $7,500</td>
+            </tr>
+            <tr class="term-group">
+              <td colspan="10">180 months · ranges vary by product (see Min – Max)</td>
+            </tr>
+            <tr>
+              <td class="code num">81145</td>
+              <td class="name">11.9% interest rate • 180 months • Standard</td>
+              <td class="apr num">11.9%</td>
+              <td class="num">180</td>
+              <td class="fee num">FREE</td>
+              <td class="fee num">—</td>
+              <td class="allin num">0%</td>
+              <td><span class="tier tier1">Tier 1</span></td>
+              <td class="num range">$25,001–$100,000</td>
+              <td class="elig">Contract &gt; $25,000</td>
+            </tr>
+            <tr>
+              <td class="code num">81751</td>
+              <td class="name">5.9% interest rate • 180 months • Standard</td>
+              <td class="apr num">5.9%</td>
+              <td class="num">180</td>
+              <td class="fee num">14%</td>
+              <td class="fee num">—</td>
+              <td class="allin num">14%</td>
+              <td><span class="tier tier1">Tier 1</span></td>
+              <td class="num range">$25,001–$100,000</td>
+              <td class="elig">Contract &gt; $25,000</td>
+            </tr>
+            <tr>
+              <td class="code num">81434</td>
+              <td class="name">12.9% interest rate • 180 months • Standard</td>
+              <td class="apr num">12.9%</td>
+              <td class="num">180</td>
+              <td class="fee num">1.5%</td>
+              <td class="fee num">—</td>
+              <td class="allin num">1.5%</td>
+              <td><span class="tier tier2">Tier 2</span></td>
+              <td class="num range">$25,001–$100,000</td>
+              <td class="elig">Contract &gt; $25,000</td>
+            </tr>
+            <tr>
+              <td class="code num">80484</td>
+              <td class="name">7.9% interest rate • 180 months • Standard</td>
+              <td class="apr num">7.9%</td>
+              <td class="num">180</td>
+              <td class="fee num">13.5%</td>
+              <td class="fee num">—</td>
+              <td class="allin num">13.5%</td>
+              <td><span class="tier tier2">Tier 2</span></td>
+              <td class="num range">$25,001–$100,000</td>
+              <td class="elig">Contract &gt; $25,000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="foot-note">
+        All-in = base MDR + Typical Brain risk (T3 <strong>6.5%</strong>, T4 <strong>8.5%</strong>; T1/T2 <strong>0%</strong>).
+        † marks all-in above 20% — left on the sheet because it appears on Vivid’s saved Foundation sheet; confirm with ops before quoting.
+        Codes from Brain FOUNDATION Standard. Plan names are LGS-style Product Names (not invented).
+      </p>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="f-inner">
+    <p><strong>Vivid Windows · Finti curated</strong> · September 29, 2026 (America/Chicago)</p>
+    <p>Rates and fees subject to lender approval and program availability. Waterfall: Service Finance <em>or</em> Sunlight as primary first look (dealer choice); Foundation always second — never Sunlight as third look. Foundation risk shown is Brain Typical (T3 6.5%, T4 8.5%). Service Finance / Sunlight fees are printed dealer fee (no Foundation risk adder). Product codes from Finti Ultimate Brain resolved against saved FPM HTML extracts (<strong>remy_403</strong> still true — live Remy scrape HTTP 403; re-verify assigned products after login).</p>
+  </div>
+</footer>
+</body>
+</html>
