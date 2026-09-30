@@ -372,6 +372,26 @@ table{min-width:min(780px,100%)}
   tr.nc-row{background:#FFFBEB!important;border-color:#FDE68A}
 }
 
+
+/* Over approved MDR (Vivid max dealer fee / all-in 16%) */
+tr.over-mdr td{background:#FEF2F2!important}
+tr.over-mdr td.fee,tr.over-mdr td.allin,tr.over-mdr td.apr,tr.over-mdr td.risk{
+  color:#B91C1C!important;font-weight:700
+}
+tr.over-mdr td.name{color:#991B1B!important}
+.over-mdr-banner{
+  background:#FEF2F2;border:1px solid #FECACA;border-left:4px solid #DC2626;
+  color:#7F1D1D;padding:12px 14px;border-radius:10px;font-size:.875rem;margin:0 0 18px;line-height:1.45
+}
+.over-mdr-banner strong{color:#991B1B}
+.over-mdr-tag{
+  display:inline-block;margin-left:6px;font-size:.6875rem;font-weight:700;
+  background:#DC2626;color:#fff;padding:2px 7px;border-radius:5px;vertical-align:middle;letter-spacing:.02em
+}
+@media (max-width:720px){
+  tr.over-mdr{border-color:#FCA5A5!important;background:#FEF2F2!important}
+}
+
 </style>
 </head>
 <body data-first="sfc">
@@ -405,6 +425,12 @@ table{min-width:min(780px,100%)}
     <strong>Playbook:</strong> <span data-dyn="playbook">Use the toggle to pick <em>either</em> Service Finance <em>or</em> Sunlight as first look. Prefer Non-Counter on Service Finance when it fits. <strong>Foundation is always second look</strong> if the first declines or credit is tougher (T3–T4). Never run Sunlight as a third look.</span>
     Prefer FREE / low-fee installment rungs when approval allows. Foundation all-in on this sheet = base MDR + Typical Brain risk (<strong>T3 6.5%</strong>, <strong>T4 8.5%</strong>; T1/T2 no risk adder).
     Rates subject to lender approval. Not for homeowner distribution without Finti.
+  </div>
+
+  <div class="over-mdr-banner" role="note">
+    <strong>Approved max dealer fee / MDR: 16%.</strong>
+    Foundation all-in uses Typical risk (T3 <strong>6.5%</strong> / T4 <strong>8.5%</strong>; T1/T2 no risk).
+    Rows in <strong style="color:#B91C1C">red</strong> are on this sheet and would put Vivid over 16% all-in at that risk — do not assign / pull from account if live.
   </div>
 
   <div class="look-toggle-wrap">
@@ -744,33 +770,33 @@ table{min-width:min(780px,100%)}
               <td class="num range">$1,000–$100,000</td>
               <td class="elig">No extra requirement</td>
             </tr>
-            <tr>
+            <tr class="over-mdr">
               <td class="code num">83908</td>
-              <td class="name">11.9% interest rate • 120 months • Standard</td>
+              <td class="name">11.9% interest rate • 120 months • Standard<span class="over-mdr-tag">OVER 16% MDR</span></td>
               <td class="apr num">11.9%</td>
               <td class="term num">120</td>
               <td class="fee num">10%</td>
               <td class="risk num">6.5%</td>
-              <td class="allin num">16.5%</td>
+              <td class="allin num">16.5% †</td>
               <td><span class="tier tier3">Tier 3</span></td>
               <td class="num range">$1,000–$100,000</td>
               <td class="elig">No extra requirement</td>
             </tr>
-            <tr>
+            <tr class="over-mdr">
               <td class="code num">83422</td>
-              <td class="name">10.9% interest rate • 120 months • Standard</td>
+              <td class="name">10.9% interest rate • 120 months • Standard<span class="over-mdr-tag">OVER 16% MDR</span></td>
               <td class="apr num">10.9%</td>
               <td class="term num">120</td>
               <td class="fee num">13.5%</td>
               <td class="risk num">6.5%</td>
-              <td class="allin num">20%</td>
+              <td class="allin num">20% †</td>
               <td><span class="tier tier3">Tier 3</span></td>
               <td class="num range">$1,000–$100,000</td>
               <td class="elig">No extra requirement</td>
             </tr>
-            <tr>
+            <tr class="over-mdr">
               <td class="code num">81828</td>
-              <td class="name">9.9% interest rate • 120 months • Standard</td>
+              <td class="name">9.9% interest rate • 120 months • Standard<span class="over-mdr-tag">OVER 16% MDR</span></td>
               <td class="apr num">9.9%</td>
               <td class="term num">120</td>
               <td class="fee num">16%</td>
