@@ -1,22 +1,30 @@
 {
   "dealer": "Vivid Windows",
   "sheet_type": "Standard only",
-  "updated": "2026-09-29T20:56:00-05:00",
+  "updated": "2026-09-29T21:05:00-05:00",
   "source": "saved_html",
   "remy_403": true,
   "live_reverify_needed": true,
-  "note": "Live FPM scrape blocked HTTP 403. Plans resolved from saved portal HTML + Brain/LGS SoT. Re-verify assigned products after Remy login. No Roof Boyz min-120 standing applied. Sunlight HVAC rows excluded from dealer HTML.",
+  "note": "Modular first-look toggle: SFC OR Sunlight (mutually exclusive). Foundation always second. Sunlight never third. Live FPM scrape blocked HTTP 403. Plans from saved portal HTML + Brain/LGS. Sunlight HI CERTAIN on sheet: 87125, 89708, 86860. HVAC-labeled rows flagged omitted in build-summary only.",
   "lenders": {
-    "first_look": "Service Finance Company",
-    "second_look": "Foundation Finance Company"
+    "first_look_options": [
+      "Service Finance Company",
+      "Sunlight Financial"
+    ],
+    "first_look_default": "Service Finance Company",
+    "second_look": "Foundation Finance Company",
+    "never_third_look": "Sunlight Financial"
   },
   "counts": {
     "sfc_certain": 9,
     "sfc_non_counter": 5,
     "sfc_standard": 4,
+    "sunlight_certain": 3,
     "ff_certain": 16,
-    "flag_omit": 17,
-    "sunlight_excluded": "all_hvac_labeled"
+    "flag_omit": 19,
+    "hvac_excluded": "all_hvac_labeled_from_vivid_sunlight_sheet",
+    "sunlight_certain_hi": 3,
+    "sunlight_excluded": "hvac_labeled_and_unmatched_deferred"
   },
   "non_counter_codes": [
     "54101",
@@ -564,6 +572,24 @@
       "fee": 0,
       "reason": "no Brain Product Code match for APR 17 Free Plan; omitted",
       "action": "OMIT"
+    },
+    {
+      "lender": "Sunlight",
+      "portal_name": "12 mo Deferred Interest no payment promo (21.49%) then 72 mo 21.49%",
+      "apr": 21.49,
+      "term": 84,
+      "fee": 0,
+      "reason": "no Brain match (UNMATCHED_REVIEW deferred); omitted",
+      "action": "OMIT"
+    },
+    {
+      "lender": "Sunlight",
+      "portal_name": "12 mo Deferred Interest no payment promo (20.99%) then 72 mo 20.99%",
+      "apr": 20.99,
+      "term": 84,
+      "fee": 0,
+      "reason": "no Brain match (UNMATCHED_REVIEW deferred); omitted",
+      "action": "OMIT"
     }
   ],
   "allin_over_20_kept": [
@@ -587,5 +613,75 @@
     "vivid_source": "https://vividwindows.com (og:image / site lockup; dark badge on black \u2014 kept as dark well for contrast on light page)"
   },
   "dealer_facing": "No Enterprise, no silo, no Phase 1, no HVAC lecture on HTML",
-  "min_120_standing": false
+  "min_120_standing": false,
+  "waterfall_standing": "Primary = Service Finance OR Sunlight (dealer picks first look). Foundation is ALWAYS second look. Never frame Sunlight as third look.",
+  "sunlight_certain": 3,
+  "sunlight_plans": [
+    {
+      "code": "87125",
+      "status": "CERTAIN",
+      "sheet": "Standard",
+      "lgs_name": "Fixed APR of 11.99% for 180 months",
+      "apr": 11.99,
+      "term": 180,
+      "fee": 0.0,
+      "min": 5000,
+      "max": 100000,
+      "why": "FREE fee \u00b7 180 mo Fixed APR"
+    },
+    {
+      "code": "89708",
+      "status": "CERTAIN",
+      "sheet": "Standard",
+      "lgs_name": "Fixed APR of 6.99% for 180 months",
+      "apr": 6.99,
+      "term": 180,
+      "fee": 14.99,
+      "min": 5000,
+      "max": 100000,
+      "why": "Low APR \u00b7 180 mo"
+    },
+    {
+      "code": "86860",
+      "status": "CERTAIN",
+      "sheet": "Standard",
+      "lgs_name": "Fixed APR of 6.99% for 144 months",
+      "apr": 6.99,
+      "term": 144,
+      "fee": 12.49,
+      "min": 5000,
+      "max": 100000,
+      "why": "Low APR \u00b7 144 mo"
+    }
+  ],
+  "hvac_excluded": {
+    "source": "saved Vivid Sunlgith.html",
+    "rule": "Standard-lock; never mix HVAC into HI Standard sheet",
+    "action": "EXCLUDE_ALL_HVAC_LABELED_ROWS",
+    "note": "All rows labeled HVAC on the saved Vivid Sunlight sheet are excluded from dealer HTML"
+  },
+  "modular": true,
+  "sunlight_omitted": [
+    {
+      "portal": "HVAC Specialty 10.99%/36",
+      "code": "89210",
+      "reason": "HVAC sheet \u2014 Standard-lock"
+    },
+    {
+      "portal": "HVAC-labeled portal extras on Vivid Sunlgith.html",
+      "reason": "HVAC-labeled / not Standard HI workhorse"
+    },
+    {
+      "portal": "Deferred 21.49%/84 and 20.99%/84 fee 0",
+      "reason": "no Brain match; omitted"
+    }
+  ],
+  "ux": {
+    "first_look_toggle": true,
+    "default": "sfc",
+    "hides_inactive_first_look": true,
+    "foundation_always_visible": true,
+    "print_active_first_plus_foundation": true,
+    "aria": "role=tablist + aria-pressed/aria-selected + keyboard arrows"
+  }
 }
