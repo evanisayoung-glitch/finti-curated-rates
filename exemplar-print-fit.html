@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Finti Curated · Letter print-fit exemplar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --navy:#0B1F3A;--navy-mid:#143052;--gold:#F59E0B;
+  --bg:#F8FAFC;--card:#fff;--text:#0F172A;--muted:#475569;--border:#E2E8F0;
+  --first:#16A34A;--cta:#2C75FF;--cta-deep:#1E5ACC;
+  font-family:"IBM Plex Sans",Inter,"Liberation Sans",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);line-height:1.45}
+.top{background:linear-gradient(165deg,var(--navy),var(--navy-mid));color:#fff;padding:18px 24px 16px;position:relative}
+.top::before{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:linear-gradient(90deg,var(--gold),#FBBF24 40%,transparent)}
+.top-inner{max-width:1180px;margin:0 auto}
+.brand-row{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px}
+.logo-well{display:inline-flex;align-items:center;background:#fff;color:var(--navy);border-radius:8px;padding:6px 10px;height:40px;font-weight:700;letter-spacing:-.03em}
+.partner-pill{font-size:.8125rem;color:#C5D4E8;border:1px solid rgba(255,255,255,.12);border-radius:6px;padding:6px 10px}
+.partner-pill .dot{display:inline-block;width:6px;height:6px;border-radius:99px;background:var(--gold);margin-right:6px}
+h1{font-size:1.5rem;letter-spacing:-.02em;margin:0 0 4px}
+.lede{color:#A8BCD8;font-size:.9375rem;max-width:720px}
+.meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.badge{font-size:.75rem;padding:4px 8px;border-radius:6px}
+.badge.std{background:rgba(245,158,11,.16);color:#FDE68A;border:1px solid rgba(245,158,11,.28)}
+.badge.count{background:rgba(255,255,255,.07);color:#D5E0F0;border:1px solid rgba(255,255,255,.1)}
+.badge.date{color:#8FA3C0;border:1px solid rgba(255,255,255,.08)}
+.wrap{max-width:1180px;margin:0 auto;padding:18px 24px 32px}
+.note{border-left:3px solid var(--gold);padding:2px 0 2px 12px;color:var(--muted);font-size:.875rem;margin-bottom:16px}
+.note strong{color:var(--text)}
+.section{margin-bottom:22px}
+.section-head{margin-bottom:8px}
+.section-head h2{font-size:1.05rem;color:var(--navy)}
+.section-head .sub{font-size:.8125rem;color:var(--muted)}
+.look-pill{font-size:.75rem;font-weight:600;padding:2px 8px;border-radius:6px;background:#ECFDF3;color:var(--first)}
+.look-pill.second{background:#EFF6FF;color:var(--cta-deep)}
+.look-pill.third{background:#F5F3FF;color:#7C3AED}
+.table-card{background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.scroll{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.875rem;min-width:720px}
+thead th{background:var(--navy);color:#E8EEF7;font-size:.75rem;font-weight:600;text-align:left;padding:8px 10px;border-bottom:2px solid var(--gold);white-space:nowrap}
+tbody td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:top}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+td.name{font-weight:600;color:var(--text)}
+td.apr{font-weight:700;color:var(--cta-deep);white-space:nowrap}
+td.fee{font-weight:700;color:var(--navy);white-space:nowrap}
+td.range{white-space:nowrap;font-size:.8125rem}
+td.code{font-weight:600;white-space:nowrap}
+.badge-std,.badge-nc,.prog,.tier{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;padding:2px 8px;border-radius:999px}
+.badge-std{background:#EFF6FF;color:#1E3A5F;border:1px solid #BFDBFE}
+.badge-nc,.prog.reduced{background:#FEF3C7;color:#92400E;border:1px solid #F59E0B}
+.prog.free{background:#ECFDF3;color:#166534;border:1px solid #86EFAC}
+.tier{background:#F1F5F9;color:#334155;border:1px solid #E2E8F0;text-transform:none;letter-spacing:0;font-size:.75rem}
+tr.nc-row td{background:#FFF8E7}
+.nc-legend{font-size:12.5px;color:#475569;margin:8px 12px 12px}
+footer{max-width:1180px;margin:0 auto;padding:8px 24px 28px;color:var(--muted);font-size:.8125rem}
+</style>
+<link rel="stylesheet" href="print-fit.css" media="print" />
+</head>
+<body>
+<header class="top">
+  <div class="top-inner">
+    <div class="brand-row">
+      <span class="logo-well">finti</span>
+      <span class="partner-pill"><span class="dot" aria-hidden="true"></span>Finti dealers · curated portal rates</span>
+    </div>
+    <h1>Letter print-fit exemplar</h1>
+    <p class="lede">Service Finance, Foundation, Sunlight, and HVAC rows copied from the live sheets. Same classes as sfc.html / foundation.html / sunlight.html / hvac.html.</p>
+    <div class="meta">
+      <span class="badge std">Print template</span>
+      <span class="badge count">US Letter · 0.45in</span>
+      <span class="badge date">September 30, 2026 · CT</span>
+    </div>
+  </div>
+</header>
+<main class="wrap">
+  <div class="note">
+    <strong>Playbook:</strong> Start every deal with Service Finance (first look). Dealer fees from lender rate sheets. Rates subject to lender approval. Not for homeowner distribution without Finti.
+  </div>
+
+  <section class="section" id="service-finance">
+    <div class="section-head">
+      <h2>Service Finance <span class="look-pill">First look</span></h2>
+      <div class="sub">Rows copied from sfc.html · the plans that clipped in the Brittany pack</div>
+    </div>
+    <div class="table-card">
+      <div class="scroll">
+        <table class="rate-sfc">
+          <thead>
+            <tr>
+              <th class="num" scope="col">Plan #</th>
+              <th scope="col">Product</th>
+              <th class="type-col" scope="col">Type</th>
+              <th class="num" scope="col">APR</th>
+              <th class="num" scope="col">Term (mo)</th>
+              <th class="num" scope="col">Dealer Fee</th>
+              <th class="num" scope="col">Min – Max</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="code num">2012</td>
+              <td class="name">12 Months, Zero Interest with NO Monthly Payments- Same as Cash</td>
+              <td class="type-col"><span class="badge-std">Standard</span></td>
+              <td class="apr num">0%</td>
+              <td class="num">12</td>
+              <td class="fee num">7.50%</td>
+              <td class="num range">$1,000–$100,000</td>
+            </tr>
+            <tr>
+              <td class="code num">2024</td>
+              <td class="name">24 Months, Zero Interest with NO Monthly Payments- Same as Cash</td>
+              <td class="type-col"><span class="badge-std">Standard</span></td>
+              <td class="apr num">0%</td>
+              <td class="num">24</td>
+              <td class="fee num">13.00%</td>
+              <td class="num range">$1,000–$100,000</td>
+            </tr>
+            <tr>
+              <td class="code num">3048</td>
+              <td class="name">48 Months, Zero Interest with 48 Equal Monthly Payments</td>
+              <td class="type-col"><span class="badge-std">Standard</span></td>
+              <td class="apr num">0%</td>
+              <td class="num">48</td>
+              <td class="fee num">14.50%</td>
+              <td class="num range">$1,000–$100,000</td>
+            </tr>
+            <tr class="nc-row">
+              <td class="code num">46246</td>
+              <td class="name">18 Months, Zero Interest with NO Monthly Payments - Same as Cash</td>
+              <td class="type-col"><span class="badge-nc">Non-Counter</span></td>
+              <td class="apr num">0%</td>
+              <td class="num">18</td>
+              <td class="fee num">12.10%</td>
+              <td class="num range">$1,000–$100,000</td>
+            </tr>
+            <tr class="nc-row">
+              <td class="code num">51024</td>
+              <td class="name">24 Months, Zero Interest with NO Monthly Payments - Same as Cash</td>
+              <td class="type-col"><span class="badge-nc">Non-Counter</span></td>
+              <td class="apr num">0%</td>
+              <td class="num">24</td>
+              <td class="fee num">14.10%</td>
+              <td class="num range">$1,000–$100,000</td>
+            </tr>
+            <tr class="nc-row">
+              <td class="code num">52012</td>
+              <td class="name">12 Months, Zero Interest with NO Monthly Payments - Same as Cash</td>
+              <td class="type-col"><span class="badge-nc">Non-Counter</span></td>
+              <td class="apr num">0%</td>
+              <td class="num">12</td>
+              <td class="fee num">8.10%</td>
+              <td class="num range">$1,000–$100,000</td>
+            </tr>
+            <tr class="nc-row">
+              <td class="code num">54096</td>
+              <td class="name">Non-Countering - Reduced Interest Loans - Long Term @ 7.95% / 180 Months</td>
+              <td class="type-col"><span class="badge-nc">Non-Counter</span></td>
+              <td class="apr num">7.95%</td>
+              <td class="num">180</td>
+              <td class="fee num">8.10%</td>
+              <td class="num range">$3,000–$100,000</td>
+            </tr>
+            <tr class="nc-row">
+              <td class="code num">54114</td>
+              <td class="name">Non-Countering - Reduced Interest Loans - Long Term @ 10.95% / 180 Months</td>
+              <td class="type-col"><span class="badge-nc">Non-Counter</span></td>
+              <td class="apr num">10.95%</td>
+              <td class="num">180</td>
+              <td class="fee num">1.10%</td>
+              <td class="num range">$3,000–$100,000</td>
+            </tr>
+            <tr class="nc-row">
+              <td class="code num">54121</td>
+              <td class="name">Non-Countering - Reduced Interest Loans - Long Term @ 7.95% / 120 Months</td>
+              <td class="type-col"><span class="badge-nc">Non-Counter</span></td>
+              <td class="apr num">7.95%</td>
+              <td class="num">120</td>
+              <td class="fee num">7.10%</td>
+              <td class="num range">$3,000–$100,000</td>
+            </tr>
+            <tr class="nc-row">
+              <td class="code num">541243</td>
+              <td class="name">Non-Countering - Hybrid Loan @ 11.95% / 12NINP/ 120 Months</td>
+              <td class="type-col"><span class="badge-nc">Non-Counter</span></td>
+              <td class="apr num">11.95%</td>
+              <td class="num">120</td>
+              <td class="fee num">8.60%</td>
+              <td class="num range">$3,000–$100,000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="nc-legend"><strong>Non-Counter</strong> plans are approve-or-decline (not an automatic counter-offer). Standard plans can counter within lender rules.</p>
+    </div>
+  </section>
+
+  <section class="section" id="foundation">
+    <div class="section-head">
+      <h2>Foundation Finance <span class="look-pill second">Second look</span></h2>
+      <div class="sub">Rows copied from foundation.html · includes the longest Min – Max</div>
+    </div>
+    <div class="table-card">
+      <div class="scroll">
+        <table class="rate-ff">
+          <thead>
+            <tr>
+              <th class="num" scope="col">Code</th>
+              <th scope="col">Product</th>
+              <th class="num" scope="col">APR</th>
+              <th class="num" scope="col">Term (mo)</th>
+              <th scope="col">Promo</th>
+              <th class="num" scope="col">Dealer Fee</th>
+              <th scope="col">Tier</th>
+              <th class="num" scope="col">Min – Max</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="code num">84083</td>
+              <td class="name">5.9% interest rate • 120 months • Standard</td>
+              <td class="apr num">5.9%</td>
+              <td class="num">120</td>
+              <td>Yes</td>
+              <td class="fee num">14.00%</td>
+              <td><span class="tier">Tier 1</span></td>
+              <td class="num range">$1,000–$100,000</td>
+            </tr>
+            <tr>
+              <td class="code num">81751</td>
+              <td class="name">5.9% interest rate • 180 months • Standard</td>
+              <td class="apr num">5.9%</td>
+              <td class="num">180</td>
+              <td>Yes</td>
+              <td class="fee num">14.00%</td>
+              <td><span class="tier">Tier 1</span></td>
+              <td class="num range">$25,001–$100,000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="sunlight">
+    <div class="section-head">
+      <h2>Sunlight <span class="look-pill third">Third look</span></h2>
+      <div class="sub">Row copied from sunlight.html</div>
+    </div>
+    <div class="table-card">
+      <div class="scroll">
+        <table class="rate-sl">
+          <thead>
+            <tr>
+              <th class="num" scope="col">Code</th>
+              <th scope="col">Product</th>
+              <th class="num" scope="col">APR</th>
+              <th class="num" scope="col">Term (mo)</th>
+              <th scope="col">Promo</th>
+              <th class="num" scope="col">Dealer Fee</th>
+              <th class="num" scope="col">Min – Max</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="code num">86596</td>
+              <td class="name">Fixed APR of 6.99% for 60 months</td>
+              <td class="apr num">6.99%</td>
+              <td class="num">60</td>
+              <td>No</td>
+              <td class="fee num">7.49%</td>
+              <td class="num range">$2,500–$100,000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="hvac">
+    <div class="section-head">
+      <h2>Foundation HVAC <span class="look-pill second">Second look</span></h2>
+      <div class="sub">Row copied from hvac.html · nine columns, longest amount</div>
+    </div>
+    <div class="table-card">
+      <div class="scroll">
+        <table class="rate-hvac">
+          <thead>
+            <tr>
+              <th class="num" scope="col">Code</th>
+              <th scope="col">Product</th>
+              <th scope="col">Program</th>
+              <th class="num" scope="col">APR</th>
+              <th class="num" scope="col">Term (mo)</th>
+              <th scope="col">Promo</th>
+              <th class="num" scope="col">Dealer Fee</th>
+              <th scope="col">Tier</th>
+              <th class="num" scope="col">Min – Max</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="code num">84865</td>
+              <td class="name">17.99% interest rate • 180 months • HVAC Free Plan</td>
+              <td><span class="prog free">HVAC Free Plan</span></td>
+              <td class="apr num">17.99%</td>
+              <td class="num">180</td>
+              <td>Yes</td>
+              <td class="fee num">0%</td>
+              <td><span class="tier">Tier 4</span></td>
+              <td class="num range">$25,001–$100,000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="f-inner">
+    <strong>Finti Curated · print-fit exemplar</strong> rates copied from the live sheets.
+    Curated as of <strong>2026-09-23</strong>.
+  </div>
+</footer>
+</body>
+</html>
