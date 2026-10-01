@@ -1,0 +1,283 @@
+/*
+  Finti curated rate sheets — US Letter print fit.
+  See PRINT-FIT-SPEC.md.
+
+  Designed content box: 7.5in (Letter 8.5in minus 0.5in margins).
+  @page margin is 0.45in, inside the 0.4–0.5in band, so every column
+  percentage below still clears the longest nowrap values.
+
+  Load AFTER the sheet <style> block:
+    <link rel="stylesheet" href="print-fit.css" media="print" />
+*/
+
+@page {
+  size: letter portrait;
+  margin: 0.45in;
+}
+
+@media print {
+  html, body {
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #fff !important;
+    overflow: visible !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .top, thead th, tr.nc-row td, tr.term-group td,
+  .badge-nc, .badge-std, .type-badge, .tier, .prog, .look-pill {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Compact navy header — stays on the page, does not eat the table. */
+  .top {
+    padding: 8px 0 10px !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+  }
+  .top-inner,
+  .wrap,
+  footer {
+    max-width: none !important;
+    width: auto !important;
+    margin: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .wrap { padding-top: 8px !important; padding-bottom: 8px !important; }
+  footer { padding-top: 6px !important; padding-bottom: 0 !important; border-top: none !important; }
+  footer .f-inner { padding-top: 8px !important; }
+
+  .brand-row { margin-bottom: 6px !important; gap: 8px !important; }
+  .logo-well {
+    height: 28px !important;
+    padding: 2px 8px !important;
+  }
+  .logo-well img { height: 20px !important; max-width: 120px !important; }
+  .partner-pill { font-size: 8pt !important; padding: 3px 8px !important; }
+  h1 {
+    font-size: 13pt !important;
+    line-height: 1.2 !important;
+    margin: 0 0 2px !important;
+  }
+  .lede {
+    font-size: 8.5pt !important;
+    line-height: 1.35 !important;
+    max-width: none !important;
+  }
+  .meta { margin-top: 6px !important; gap: 4px !important; }
+  .badge { font-size: 7.5pt !important; padding: 2px 6px !important; }
+
+  .note {
+    font-size: 8pt !important;
+    line-height: 1.35 !important;
+    margin-bottom: 8px !important;
+  }
+  .waterfall { margin-bottom: 8px !important; }
+  .waterfall.steps-1 { max-width: none !important; }
+  .waterfall.steps-3 {
+    grid-template-columns: 1fr auto 1fr auto 1fr !important;
+    gap: 0 !important;
+  }
+  .wf-join { display: flex !important; padding: 0 4px !important; }
+  .wf-card { padding: 6px 8px !important; }
+  .wf-card .k { font-size: 7.5pt !important; }
+  .wf-card .t { font-size: 10pt !important; margin-bottom: 2px !important; }
+  .wf-card .d { font-size: 8pt !important; line-height: 1.3 !important; }
+  .wf-card .step { width: 16px !important; height: 16px !important; font-size: 8pt !important; margin-bottom: 4px !important; }
+
+  .section { margin-bottom: 10px !important; break-inside: auto !important; page-break-inside: auto !important; }
+  .section-head { margin-bottom: 4px !important; break-after: avoid !important; page-break-after: avoid !important; }
+  .section-head h2 { font-size: 11pt !important; }
+  .section-head .sub { font-size: 8pt !important; }
+  .look-pill { font-size: 7.5pt !important; padding: 1px 6px !important; }
+
+  /* The clip: .scroll overflow + table min-width pushed Min–Max off the page. */
+  .table-card,
+  .scroll {
+    overflow: visible !important;
+    box-shadow: none !important;
+    max-width: 100% !important;
+    break-inside: auto !important;
+    page-break-inside: auto !important;
+  }
+  .table-card { border-radius: 0 !important; }
+
+  table {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    border-collapse: collapse !important;
+    border-spacing: 0 !important;
+    font-size: 8pt !important;
+    table-layout: auto !important;
+  }
+
+  thead { display: table-header-group !important; }
+  tfoot { display: table-footer-group !important; }
+  thead tr { break-inside: avoid !important; page-break-inside: avoid !important; }
+  tbody tr {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+  thead th, tbody td {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  thead th {
+    position: static !important;
+    top: auto !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    font-size: 7pt !important;
+    line-height: 1.15 !important;
+    letter-spacing: 0 !important;
+    padding: 3px 3px !important;
+    vertical-align: bottom !important;
+  }
+  tbody td {
+    padding: 3px 3px !important;
+    font-size: 8pt !important;
+    line-height: 1.25 !important;
+    vertical-align: top !important;
+    overflow: visible !important;
+    background: #fff !important;
+  }
+  tbody tr:nth-child(even) td { background: #f4f7fb !important; }
+  tr.nc-row td { background: #fff8e7 !important; }
+  tr.term-group td {
+    background: #eef2f7 !important;
+    font-size: 7.5pt !important;
+    padding: 3px 4px !important;
+  }
+
+  /* Product / prose columns wrap inside the cell. Never clip. */
+  td.name, td.why, td.elig {
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+    word-wrap: break-word !important;
+    word-break: normal !important;
+    hyphens: manual !important;
+  }
+  td.name { font-size: 8pt !important; }
+  td.name .plan-sub { display: block; font-size: 7pt !important; font-weight: 500; color: #475569; margin-top: 1px; }
+
+  /* Amounts and short numbers stay one line, inside a column sized for them. */
+  td.code, td.apr, td.fee, td.term, td.risk, td.allin, td.range,
+  td.num {
+    white-space: nowrap !important;
+    overflow-wrap: normal !important;
+    word-break: keep-all !important;
+    font-size: 7.5pt !important;
+  }
+  th.type-col, td.type-col {
+    width: auto !important;
+    white-space: normal !important;
+    font-size: 7pt !important;
+  }
+  .badge-nc, .badge-std, .type-badge, .tier, .prog {
+    white-space: nowrap !important;
+    letter-spacing: 0 !important;
+    font-size: 6.25pt !important;
+    padding: 0 3px !important;
+    line-height: 1.35 !important;
+  }
+  .nc-legend, .legend-nc, .foot-note, .table-label {
+    font-size: 7.5pt !important;
+    margin: 4px 0 !important;
+    padding: 2px 0 !important;
+  }
+
+  .look-toggle-wrap { display: none !important; }
+  .over-mdr-banner { font-size: 8pt !important; margin-bottom: 6px !important; }
+
+  /*
+    Fixed columns. Percentages sum to 100 and are budgeted against a
+    7.5in content box (0.5in margins). Min – Max is at least 17% (~1.28in)
+    so "$25,001–$100,000" stays intact at 7.5pt.
+  */
+  table.rate-sfc,
+  table.rate-ff,
+  table.rate-sl,
+  table.rate-hvac,
+  table.rate-vivid-sfc,
+  table.rate-vivid-sl,
+  table.rate-vivid-ff {
+    table-layout: fixed !important;
+  }
+
+  /* SFC — Plan, Product, Type, APR, Term, Dealer Fee, Min – Max */
+  table.rate-sfc th:nth-child(1) { width: 8%; }
+  table.rate-sfc th:nth-child(2) { width: 34%; }
+  table.rate-sfc th:nth-child(3) { width: 14%; }
+  table.rate-sfc th:nth-child(4) { width: 9%; }
+  table.rate-sfc th:nth-child(5) { width: 8%; }
+  table.rate-sfc th:nth-child(6) { width: 10%; }
+  table.rate-sfc th:nth-child(7) { width: 17%; }
+
+  /* Sunlight — Code, Product, APR, Term, Promo, Dealer Fee, Min – Max */
+  table.rate-sl th:nth-child(1) { width: 9%; }
+  table.rate-sl th:nth-child(2) { width: 40%; }
+  table.rate-sl th:nth-child(3) { width: 9%; }
+  table.rate-sl th:nth-child(4) { width: 8%; }
+  table.rate-sl th:nth-child(5) { width: 8%; }
+  table.rate-sl th:nth-child(6) { width: 9%; }
+  table.rate-sl th:nth-child(7) { width: 17%; }
+
+  /* Foundation — Code, Product, APR, Term, Promo, Dealer Fee, Tier, Min – Max */
+  table.rate-ff th:nth-child(1) { width: 8%; }
+  table.rate-ff th:nth-child(2) { width: 32%; }
+  table.rate-ff th:nth-child(3) { width: 8%; }
+  table.rate-ff th:nth-child(4) { width: 8%; }
+  table.rate-ff th:nth-child(5) { width: 7%; }
+  table.rate-ff th:nth-child(6) { width: 10%; }
+  table.rate-ff th:nth-child(7) { width: 9%; }
+  table.rate-ff th:nth-child(8) { width: 18%; }
+
+  /* HVAC — Code, Product, Program, APR, Term, Promo, Dealer Fee, Tier, Min – Max */
+  table.rate-hvac th:nth-child(1) { width: 8%; }
+  table.rate-hvac th:nth-child(2) { width: 22%; }
+  table.rate-hvac th:nth-child(3) { width: 12%; }
+  table.rate-hvac th:nth-child(4) { width: 8%; }
+  table.rate-hvac th:nth-child(5) { width: 7%; }
+  table.rate-hvac th:nth-child(6) { width: 7%; }
+  table.rate-hvac th:nth-child(7) { width: 9%; }
+  table.rate-hvac th:nth-child(8) { width: 9%; }
+  table.rate-hvac th:nth-child(9) { width: 18%; }
+
+  /* Vivid SFC — Product Code, Plan, APR, Term, Dealer fee, Min – Max, Type, Why */
+  table.rate-vivid-sfc th:nth-child(1) { width: 9%; }
+  table.rate-vivid-sfc th:nth-child(2) { width: 26%; }
+  table.rate-vivid-sfc th:nth-child(3) { width: 8%; }
+  table.rate-vivid-sfc th:nth-child(4) { width: 7%; }
+  table.rate-vivid-sfc th:nth-child(5) { width: 8%; }
+  table.rate-vivid-sfc th:nth-child(6) { width: 17%; }
+  table.rate-vivid-sfc th:nth-child(7) { width: 12%; }
+  table.rate-vivid-sfc th:nth-child(8) { width: 13%; }
+
+  /* Vivid Sunlight — Product Code, Plan, APR, Term, Dealer fee, Min – Max, Why */
+  table.rate-vivid-sl th:nth-child(1) { width: 10%; }
+  table.rate-vivid-sl th:nth-child(2) { width: 32%; }
+  table.rate-vivid-sl th:nth-child(3) { width: 8%; }
+  table.rate-vivid-sl th:nth-child(4) { width: 8%; }
+  table.rate-vivid-sl th:nth-child(5) { width: 9%; }
+  table.rate-vivid-sl th:nth-child(6) { width: 17%; }
+  table.rate-vivid-sl th:nth-child(7) { width: 16%; }
+
+  /* Vivid Foundation — 10 columns, Min – Max is column 9 */
+  table.rate-vivid-ff th:nth-child(1) { width: 8%; }
+  table.rate-vivid-ff th:nth-child(2) { width: 16%; }
+  table.rate-vivid-ff th:nth-child(3) { width: 7%; }
+  table.rate-vivid-ff th:nth-child(4) { width: 6%; }
+  table.rate-vivid-ff th:nth-child(5) { width: 7%; }
+  table.rate-vivid-ff th:nth-child(6) { width: 6%; }
+  table.rate-vivid-ff th:nth-child(7) { width: 7%; }
+  table.rate-vivid-ff th:nth-child(8) { width: 7%; }
+  table.rate-vivid-ff th:nth-child(9) { width: 18%; }
+  table.rate-vivid-ff th:nth-child(10) { width: 18%; }
+}
